@@ -3,14 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class GameController : MonoBehaviour {
-
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    private InitMap map;
+    
+    void Awake () {
+        newMap();
+    }
+    void newMap() {
+        map = GetComponent<InitMap>();
+    }
 }
