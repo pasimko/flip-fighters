@@ -11,22 +11,15 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
     }
    
     public LayerMask groundLayer; // Insert the layer here.
 
     void Update()
     {
-        //isGrounded = Physics2D.OverlapCircle(leftLeg.position, 0.3f, groundLayer); // checks if you are within 0.15 position in the Y of the ground
+        isGrounded = Physics2D.OverlapCircle(leftLeg.position, 0.3f, groundLayer); // checks if you are within 0.15 position in the Y of the ground
         Debug.Log(isGrounded);
     }
-    void OnCollisionStay(Collision collisionInfo)
-    {
-        isGrounded = true;
-    }
-
-    void OnCollisionExit(Collision collisionInfo)
-    {
-        isGrounded = false;
-    }
+   
 }
