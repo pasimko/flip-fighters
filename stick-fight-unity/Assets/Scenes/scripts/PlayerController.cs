@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public Rigidbody2D head;
-    public Transform leftLeg, rightLeg;
+    public Transform leftLeg, rightLeg, rightToe, leftToe;
     bool isGrounded = false;
 
     // Start is called before the first frame update
@@ -18,7 +18,8 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        isGrounded = Physics2D.OverlapCircle(leftLeg.position, 0.3f, groundLayer); // checks if you are within 0.15 position in the Y of the ground
+        isGrounded = (Physics2D.OverlapCircle(leftToe.position, 0.5f, groundLayer) || Physics2D.OverlapCircle(rightToe.position, 0.5f, groundLayer));
+      
         Debug.Log(isGrounded);
     }
    
