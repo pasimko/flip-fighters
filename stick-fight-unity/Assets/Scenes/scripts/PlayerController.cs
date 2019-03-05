@@ -6,40 +6,27 @@ public class PlayerController : MonoBehaviour
 {
     public Rigidbody2D head;
     public Transform leftLeg, rightLeg;
-    bool isGrounded;
+    bool isGrounded = false;
+
     // Start is called before the first frame update
     void Start()
     {
     }
+   
+    public LayerMask groundLayer; // Insert the layer here.
 
-    // Update is called once per frame
     void Update()
     {
-        if (isGrounded)
-        {
-            head.AddForce(new Vector2(0, 40));
-            Debug.Log(1);
-        }
-        head.AddForce(new Vector2(0, 40));
+        //isGrounded = Physics2D.OverlapCircle(leftLeg.position, 0.3f, groundLayer); // checks if you are within 0.15 position in the Y of the ground
+        Debug.Log(isGrounded);
+    }
+    void OnCollisionStay(Collision collisionInfo)
+    {
+        isGrounded = true;
     }
 
-    void GroundCheck()
+    void OnCollisionExit(Collision collisionInfo)
     {
-        RaycastHit hit;
-        float distance = 1f;
-        Vector3 dir = new Vector3(0, -1);
-
-        if (Physics.Raycast(leftLeg.position, dir, out hit, distance))
-        {
-            isGrounded = true;
-        }
-        else if (Physics.Raycast(rightLeg.position, dir, out hit, distance))
-        {
-            isGrounded = true;
-        }
-        else
-        {
-            isGrounded = false;
-        }
+        isGrounded = false;
     }
 }
