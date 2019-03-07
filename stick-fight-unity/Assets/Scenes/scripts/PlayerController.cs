@@ -19,7 +19,6 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         isGrounded = (Physics2D.OverlapCircle(leftToe.position, 0.2f, groundLayer) || Physics2D.OverlapCircle(rightToe.position, 0.2f, groundLayer));
-        Debug.Log(isGrounded);
         standUp();
     }
 
@@ -27,10 +26,24 @@ public class PlayerController : MonoBehaviour
     {
         if (isGrounded)
         {
-            head.AddForce(new Vector2(0, 30));
-            torso.AddForce(new Vector2(0, 20));
+            float restoringTorque = getTorque()/25;
+            head.AddForce(new Vector2(0, 40));
+            torso.AddTorque(restoringTorque);
         }
 
     }
-   
+    float getTorque()
+    {
+        float restoringTorque = torso.transform.rotation.eulerAngles.z;
+        Debug.Log(restoringTorque);
+        float restoringTorqueVel = torso.angularVelocity;
+
+        /*torque = spring coeff * dist from desired angle * axis of rot
+         *      + damping coeff * dist from desired angvel * axis of rot
+         */
+        float springTorque = 0.5f * restoringTorque + 0.1f * restoringTorqueVel;
+        //Debug.Log(springTorque);
+        return springTorque;
+    }
+
 }
