@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public Rigidbody2D head;
+    public Rigidbody2D head, torso;
     public Transform leftLeg, rightLeg, rightToe, leftToe;
     bool isGrounded = false;
 
@@ -20,9 +20,17 @@ public class PlayerController : MonoBehaviour
     {
         isGrounded = (Physics2D.OverlapCircle(leftToe.position, 0.2f, groundLayer) || Physics2D.OverlapCircle(rightToe.position, 0.2f, groundLayer));
         Debug.Log(isGrounded);
-        if (isGrounded) {
-            head.AddForce(new Vector2(0, 40));
+        standUp();
+    }
+
+    void standUp()
+    {
+        if (isGrounded)
+        {
+            head.AddForce(new Vector2(0, 30));
+            torso.AddForce(new Vector2(0, 20));
         }
+
     }
    
 }
