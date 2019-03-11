@@ -4,17 +4,11 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public Rigidbody2D head, torso;
+    public Rigidbody2D head, body;
     public Transform leftLeg, rightLeg, rightToe, leftToe;
-    bool isGrounded = false;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-   
-    public LayerMask groundLayer; // Insert the layer here.
+    bool isGrounded = false;
+    public LayerMask groundLayer; // The map - Layer for checking collisions with any of the map
 
     void Update()
     {
@@ -26,22 +20,24 @@ public class PlayerController : MonoBehaviour
     {
         if (isGrounded)
         {
-            float restoringTorque = getTorque()/25;
-            head.AddForce(new Vector2(0, 40));
-            torso.AddTorque(restoringTorque);
+            head.AddForce(new Vector2(0, 30));
+            float restoringTorque = -getTorque()*250;
+            body.AddTorque(restoringTorque);
         }
 
     }
     float getTorque()
     {
-        float restoringTorque = torso.transform.rotation.eulerAngles.z;
-        Debug.Log(restoringTorque);
-        float restoringTorqueVel = torso.angularVelocity;
+        //Get the current rotation, and add a desired rotation to move to
+        float restoringTorque = body.transform.rotation.eulerAngles.z;
+        restoringTorque = Mathf.Sin(0.01745f*restoringTorque);
+        float restoringTorqueVel = body.angularVelocity;
+        restoringTorqueVel = Mathf.Sin(0.01745f * restoringTorqueVel);
 
         /*torque = spring coeff * dist from desired angle * axis of rot
          *      + damping coeff * dist from desired angvel * axis of rot
          */
-        float springTorque = 0.5f * restoringTorque + 0.1f * restoringTorqueVel;
+        float springTorque = 1f * restoringTorque + 1f * restoringTorqueVel;
         //Debug.Log(springTorque);
         return springTorque;
     }

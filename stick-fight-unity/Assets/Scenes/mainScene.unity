@@ -1275,7 +1275,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   head: {fileID: 1120355741}
-  torso: {fileID: 7858183535086316796}
+  body: {fileID: 7858183535086316796}
   leftLeg: {fileID: 1472064245}
   rightLeg: {fileID: 978190679}
   rightToe: {fileID: 700402294}
