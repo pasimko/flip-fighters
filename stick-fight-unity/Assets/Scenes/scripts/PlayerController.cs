@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public Rigidbody2D head, body;
-    public Transform leftLeg, rightLeg, rightToe, leftToe;
+    public Rigidbody2D head, body, leftLeg, rightLeg;
+    public Transform rightToe, leftToe;
 
     bool isGrounded = false;
     public LayerMask groundLayer; // The map - Layer for checking collisions with any of the map
@@ -18,11 +18,22 @@ public class PlayerController : MonoBehaviour
 
     void standUp()
     {
+        Debug.Log(isGrounded);
         if (isGrounded)
         {
-            head.AddForce(new Vector2(0, 30));
-            float restoringTorque = -getTorque()*250;
-            body.AddTorque(restoringTorque);
+            rightLeg.AddForce(new Vector2(0, -20));
+            leftLeg.AddForce(new Vector2(0, -20));
+            if (Mathf.Abs(body.transform.rotation.eulerAngles.z) > 30)
+            {
+                head.AddForce(new Vector2(0, 50));
+                float restoringTorque = -getTorque()*250;
+                body.AddTorque(restoringTorque);
+            }
+            else
+            {
+                head.AddForce(new Vector2(0, 90));
+                //body.AddForce(new Vector2(0, 20));
+            }
         }
 
     }
