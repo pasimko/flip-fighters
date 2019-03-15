@@ -18,20 +18,21 @@ public class PlayerController : MonoBehaviour
 
     void standUp()
     {
-        Debug.Log(isGrounded);
         if (isGrounded)
         {
             rightLeg.AddForce(new Vector2(0, -20));
             leftLeg.AddForce(new Vector2(0, -20));
             if (Mathf.Abs(body.transform.rotation.eulerAngles.z) > 30)
             {
-                head.AddForce(new Vector2(0, 50));
+                head.AddForce(new Vector2(0, 65-head.velocity.y));
                 float restoringTorque = -getTorque()*250;
                 body.AddTorque(restoringTorque);
+                Debug.Log("torque");
             }
             else
             {
                 head.AddForce(new Vector2(0, 90));
+                Debug.Log("head");
                 //body.AddForce(new Vector2(0, 20));
             }
         }
