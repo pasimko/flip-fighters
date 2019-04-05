@@ -7,6 +7,8 @@ public class PlayerController : MonoBehaviour
     public Rigidbody2D head, body, leftLeg, rightLeg;
     public Transform rightToe, leftToe;
 
+    public KeyCode right, left, jump, attack, block;
+
     bool isGrounded = false;
     public LayerMask groundLayer; // The map - Layer for checking collisions with any of the map
 
@@ -23,15 +25,15 @@ public class PlayerController : MonoBehaviour
     void standUp()
     {
 
-        if (Input.GetMouseButtonDown(2) && isGrounded)
+        if (Input.GetKeyDown(jump) && isGrounded)
         {
             head.AddForce(new Vector2(0, 2500));
         }
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetKeyDown(left))
         {
             head.AddForce(new Vector2(-500, 0));
         }
-        if (Input.GetMouseButtonDown(1))
+        if (Input.GetKeyDown(right))
         {
             head.AddForce(new Vector2(500, 0));
         }
