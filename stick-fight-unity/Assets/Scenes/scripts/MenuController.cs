@@ -6,9 +6,7 @@ using UnityEngine.SceneManagement;
 public class MenuController : MonoBehaviour
 {
 
-    bool controlsOn = false;
-    bool settingsOn = false;
-    bool startOn = false;
+  
 
     public void startGame()
     {
