@@ -13,7 +13,7 @@ public class GameController : MonoBehaviour {
         {
             GameObject tempPlayerObj = new GameObject();
             Transform tempPlayerTransform = tempPlayerObj.transform;
-            Vector2 stickPlayerPos = new Vector2(Random.Range(-5, 5), 0);
+            Vector3 stickPlayerPos = new Vector3(Random.Range(-5, 5), 6, 10);
             tempPlayerTransform = Instantiate(stickPlayer, stickPlayerPos, Quaternion.identity);
             stickPlayerList.Add(tempPlayerTransform);
         }
