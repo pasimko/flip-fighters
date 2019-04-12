@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
 
     public KeyCode right, left, jump, attack, block;
 
-    bool isGrounded = false;
+    private bool isGrounded = false;
     public LayerMask groundLayer; // The map - Layer for checking collisions with any of the map
 
     ControlsController controls;
@@ -18,8 +18,9 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        isGrounded = (Physics2D.OverlapCircle(leftToe.position, 0.2f, groundLayer) || Physics2D.OverlapCircle(rightToe.position, 0.2f, groundLayer));
+        isGrounded = (Physics2D.OverlapCircle(leftToe.position, 8f, groundLayer) || Physics2D.OverlapCircle(rightToe.position, 8f, groundLayer));
         standUp();
+        Debug.Log(isGrounded);
     }
 
     void standUp()
@@ -48,12 +49,10 @@ public class PlayerController : MonoBehaviour
                 body.AddTorque(restoringTorque);
                 //The body's rotation will be slowed down scaled based on the magnitude of it's angular velocity 
                 body.AddTorque(-body.angularVelocity);
-                Debug.Log("torque");
             }
             else
             {
                 head.AddForce(new Vector2(0, 90));
-                Debug.Log("head");
                 //body.AddForce(new Vector2(0, 20));
             }
         }
