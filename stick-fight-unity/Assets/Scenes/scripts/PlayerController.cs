@@ -15,15 +15,18 @@ public class PlayerController : MonoBehaviour
     ControlsController controls;
 
     bool jumpPressed = false;
-
+    public void Initialize(Transform prefab, Vector3 location)
+    {
+        Instantiate(prefab, location, Quaternion.identity);
+    }
     void Update()
     {
-        isGrounded = (Physics2D.OverlapCircle(leftToe.position, 8f, groundLayer) || Physics2D.OverlapCircle(rightToe.position, 8f, groundLayer));
-        standUp();
+        isGrounded = (Physics2D.OverlapCircle(leftToe.position, 0.2f, groundLayer) || Physics2D.OverlapCircle(rightToe.position, 0.2f, groundLayer));
         Debug.Log(isGrounded);
+        standUp();
     }
 
-    void standUp()
+    public void standUp()
     {
 
         if (Input.GetKeyDown(jump) && isGrounded)

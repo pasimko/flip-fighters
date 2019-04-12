@@ -5,23 +5,18 @@ using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
-    public Transform stickPlayer1;
-    public Transform stickPlayer2;
-
+    public Transform stickPlayer;
+    public List<Transform> stickPlayerList = new List<Transform>();
+    public PlayerController player1;
+    public PlayerController player2;
 
     void Awake()
     {
+        player1 = new PlayerController();
+        player2 = new PlayerController();
 
-        GameObject tempPlayer1Obj = new GameObject();
-        Transform tempPlayer1Transform = tempPlayer1Obj.transform;
-        Vector3 stickPlayer1Pos = new Vector3(Random.Range(-16, -3), 6, 10);
-        tempPlayer1Transform = Instantiate(stickPlayer1, stickPlayer1Pos, Quaternion.identity);
-
-        GameObject tempPlayer2Obj = new GameObject();
-        Transform tempPlayer2Transform = tempPlayer2Obj.transform;
-        Vector3 stickPlayer2Pos = new Vector3(Random.Range(0, 9), 6, 10);
-        tempPlayer2Transform = Instantiate(stickPlayer2, stickPlayer2Pos, Quaternion.identity);
-
+        player1.Initialize(stickPlayer, new Vector3(Random.Range(-16, -3), 6, 10));
+        player2.Initialize(stickPlayer, new Vector3(Random.Range(3, 16), 6, 10));
     }
     void newMap()
     {
