@@ -48,20 +48,10 @@ public class PlayerController : MonoBehaviour
         if (isGrounded)
         {
             isJumping = false;
-            rightLeg.AddForce(new Vector2(0, -40));
-            leftLeg.AddForce(new Vector2(0, -40));
-            if (Mathf.Abs(body.transform.rotation.eulerAngles.z) > 30)
-            {
-                head.AddForce(new Vector2(0, 65-head.velocity.y));
-                float restoringTorque = -getTorque()*250;
-                body.AddTorque(restoringTorque);
-                //The body's rotation will be slowed down scaled based on the magnitude of it's angular velocity 
-                body.AddTorque(-body.angularVelocity);
-            }
-            else
-            {
-                head.AddForce(new Vector2(0, 100));
-            }
+            head.AddForce(new Vector2(0, 90));
+            rightLeg.AddForce(new Vector2(0, -20));
+            leftLeg.AddForce(new Vector2(0, -20));
+            body.AddTorque(-body.angularVelocity);
         }
 
     }
