@@ -49,8 +49,8 @@ public class PlayerController : MonoBehaviour
         {
             isJumping = false;
             head.AddForce(new Vector2(0, 90));
-            rightLeg.AddForce(new Vector2(0, -20));
-            leftLeg.AddForce(new Vector2(0, -20));
+            rightLeg.AddForce(new Vector2(0, -40));
+            leftLeg.AddForce(new Vector2(0, -40));
             body.AddTorque(-body.angularVelocity);
         }
 
