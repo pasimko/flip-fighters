@@ -5,51 +5,70 @@ using UnityEngine.UI;
 
 public class ControlsController : MonoBehaviour
 {
+    KeyCode Pl1ForwardInput = KeyCode.D;
+    KeyCode Pl1BackInput = KeyCode.A;
+    KeyCode Pl1JumpInput = KeyCode.W;
+    KeyCode PL1AttackInput = KeyCode.Space;
+    KeyCode Pl1BlockInput = KeyCode.B;
 
+    KeyCode Pl2ForwardInput = KeyCode.RightArrow;
+    KeyCode Pl2BackInput = KeyCode.LeftArrow;
+    KeyCode Pl2JumpInput = KeyCode.UpArrow;
+    KeyCode Pl2AttackInput = KeyCode.RightControl;
+    KeyCode Pl2BlockInput = KeyCode.RightShift;
+    
 
-    Toggle ForwardPl1;
-    Toggle BackPl1;
-    Toggle JumpPl1;
-    Toggle AttackPl1;
-    Toggle BlockPl1;
-    Toggle ForwardPl2;
-    Toggle BackPl2;
-    Toggle JumpPl2;
-    Toggle AttackPl2;
-    Toggle BlockPl2;
+    public Toggle ForwardPl1;
+    public Toggle BackPl1;
+    public Toggle JumpPl1;
+    public Toggle AttackPl1;
+    public Toggle BlockPl1;
+    public Toggle ForwardPl2;
+    public Toggle BackPl2;
+    public Toggle JumpPl2;
+    public Toggle AttackPl2;
+    public Toggle BlockPl2;
 
-    bool ForwatdPl1on = false;
-    bool BackPl1on = false;
-    bool JumpPl1on = false;
-    bool AttackPl1on = false;
-    bool BlockPl1on = false;
-    bool ForwardPl2on = false;
-    bool BackPl2on = false;
-    bool JumpPl2on = false;
-    bool AttackPL2on = false;
-    bool BlockPl2on = false;
+    public Text F1text;
 
     private int[] values;
 
     void Awake()
     {
         values = (int[])System.Enum.GetValues(typeof(KeyCode));
-        ForwardPl1 = GetComponent<Toggle>();
-        BackPl1 = GetComponent<Toggle>();
-        JumpPl1 = GetComponent<Toggle>();
-        AttackPl1 = GetComponent<Toggle>();
-        BlockPl1 = GetComponent<Toggle>();
-        ForwardPl2 = GetComponent<Toggle>();
-        BackPl2 = GetComponent<Toggle>();
-        JumpPl2 = GetComponent<Toggle>();
-        AttackPl2 = GetComponent<Toggle>();
-        BlockPl2 = GetComponent<Toggle>();
 
+        ForwardPl1.onValueChanged.AddListener(delegate
+        {
+            ForwardPl1Change(ForwardPl1);
+        });
+        F1text.text = "Initial Value" + ForwardPl1.isOn;
 
     }
 
-    
+    private void Update()
+    {
+       /* if (ForwardPl1.isOn == true)
+        {
+            foreach (KeyCode pInput in values)
+            {
+                if (Input.GetKey(pInput))
+                {
+                    Debug.Log(pInput);
+                    ForwardPl1.image.color = Color.white;
 
-    
+                    //ForwardPl1.GetComponentInChildren<Text>().text = pInput;
+                    ForwardPl1.isOn = false;
+                }
+            }
+        }
+        */
+    }
+
+    void ForwardPl1Change(Toggle change)
+    {
+        F1text.text = "New Value" + ForwardPl1.isOn;
+    }
+
+
 
 }
