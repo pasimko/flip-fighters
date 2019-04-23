@@ -15,8 +15,8 @@ public class GameController : MonoBehaviour
         player1 = new PlayerController();
         player2 = new PlayerController();
 
-        player1.Initialize(stickPlayer, new Vector3(Random.Range(-16, -3), 6, 10));
-        player2.Initialize(stickPlayer, new Vector3(Random.Range(3, 16), 6, 10));
+        player1.Initialize(stickPlayer, new Vector3(Random.Range(-16, -3), 6, 0));
+        player2.Initialize(stickPlayer, new Vector3(Random.Range(3, 16), 6, 0));
     }
     void newMap()
     {

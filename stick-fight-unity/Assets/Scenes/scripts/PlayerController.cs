@@ -7,6 +7,10 @@ public class PlayerController : MonoBehaviour
     public Rigidbody2D head, body, leftLeg, rightLeg;
     public Transform rightToe, leftToe;
 
+
+    Projectile testProj;
+    public Rigidbody2D testProjPref;
+
     public KeyCode right, left, jump, attack, block;
 
     public bool isGrounded = false;
@@ -16,6 +20,7 @@ public class PlayerController : MonoBehaviour
     
     public void Initialize(Transform prefab, Vector3 location)
     {
+        // Put an instance of the player in the scene
         Instantiate(prefab, location, Quaternion.identity);
     }
 
@@ -40,6 +45,11 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(right))
         {
             head.AddForce(new Vector2(500, 0));
+        }
+        if (Input.GetKeyDown(attack))
+        {
+            testProj = new Projectile();
+            testProj.Initialize(new Vector3(10, 10, 0), head.velocity, Vector3.one, 5f, 10f, null, testProjPref, true);
         }
     }
 
