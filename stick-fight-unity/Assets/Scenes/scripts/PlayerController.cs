@@ -8,10 +8,6 @@ public class PlayerController : MonoBehaviour
     public Rigidbody2D head, body, leftLeg, rightLeg;
     public Transform rightToe, leftToe;
 
-
-    Projectile testProj;
-    public Rigidbody2D testProjPref;
-
     // KeyCodes that when pressed will trigger this action
     public KeyCode right, left, jump, attack, block;
 
@@ -50,8 +46,7 @@ public class PlayerController : MonoBehaviour
         }
         if (Input.GetKeyDown(attack))
         {
-            testProj = new Projectile();
-            testProj.Initialize(new Vector3(10, 10, 0), head.velocity, Vector3.one, 5f, 10f, null, testProjPref, true);
+
         }
     }
 
