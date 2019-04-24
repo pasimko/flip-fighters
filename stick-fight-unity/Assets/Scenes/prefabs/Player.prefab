@@ -477,10 +477,12 @@ MonoBehaviour:
   rightLeg: {fileID: 7877457359027337519}
   rightToe: {fileID: 7877457358660580407}
   leftToe: {fileID: 7877457359912609710}
+  testProjPref: {fileID: 2398457961944200698, guid: 0e0ffb8f862e2c16f85eb00b581fa431,
+    type: 3}
   right: 100
   left: 97
   jump: 119
-  attack: 0
+  attack: 115
   block: 0
   isGrounded: 0
   isJumping: 0
