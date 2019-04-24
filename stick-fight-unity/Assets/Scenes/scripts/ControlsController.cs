@@ -29,9 +29,12 @@ public class ControlsController : MonoBehaviour
     public Toggle AttackPl2;
     public Toggle BlockPl2;
 
+    string F1string;
+
     public Text F1text;
 
     private int[] values;
+    private KeyCode PlayerInput;
 
     void Awake()
     {
@@ -39,33 +42,79 @@ public class ControlsController : MonoBehaviour
 
         ForwardPl1.onValueChanged.AddListener(delegate
         {
-            ForwardPl1Change(ForwardPl1);
+            ToggleChange(ForwardPl1);
         });
-
+        BackPl1.onValueChanged.AddListener(delegate
+        {
+            ToggleChange(BackPl1);
+        });
+        JumpPl1.onValueChanged.AddListener(delegate
+        {
+            ToggleChange(JumpPl1);
+        });
+        AttackPl1.onValueChanged.AddListener(delegate
+        {
+            ToggleChange(AttackPl1);
+        });
+        BlockPl1.onValueChanged.AddListener(delegate
+        {
+            ToggleChange(BlockPl1);
+        });
+        ForwardPl2.onValueChanged.AddListener(delegate
+        {
+            ToggleChange(ForwardPl2);
+        });
+        BackPl2.onValueChanged.AddListener(delegate
+        {
+            ToggleChange(BackPl2);
+        });
+        JumpPl2.onValueChanged.AddListener(delegate
+        {
+            ToggleChange(JumpPl2);
+        });
+        AttackPl2.onValueChanged.AddListener(delegate
+        {
+            ToggleChange(AttackPl2);
+        });
+        BlockPl2.onValueChanged.AddListener(delegate
+        {
+            ToggleChange(BlockPl2);
+        });
     }
 
     private void Update()
     {
-       /* if (ForwardPl1.isOn == true)
+        if (ForwardPl1.isOn == true)
         {
             foreach (KeyCode pInput in values)
             {
                 if (Input.GetKey(pInput))
                 {
-                    Debug.Log(pInput);
-                    ForwardPl1.image.color = Color.white;
-
-                    //ForwardPl1.GetComponentInChildren<Text>().text = pInput;
-                    ForwardPl1.isOn = false;
+                    PlayerInput = pInput;
+                    if (PlayerInput != KeyCode.Mouse0 )
+                    {
+                        F1string = PlayerInput.ToString();
+                        F1text.text = F1string;
+                        Debug.Log(pInput);
+                        ForwardPl1.isOn = false;
+                    }
                 }
             }
         }
-        */
+        
     }
 
-    void ForwardPl1Change(Toggle change)
+    void ToggleChange(Toggle change)
     {
-          
+        Debug.Log("Hello The Toggle Changed");
+        if (change.isOn == true)
+        {
+            change.image.color = Color.cyan;
+        }
+        else
+        {
+            change.image.color = Color.white;
+        }
     }
 
 
