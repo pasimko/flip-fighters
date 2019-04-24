@@ -41,7 +41,6 @@ public class ControlsController : MonoBehaviour
         {
             ForwardPl1Change(ForwardPl1);
         });
-        F1text.text = "Initial Value" + ForwardPl1.isOn;
 
     }
 
@@ -66,7 +65,7 @@ public class ControlsController : MonoBehaviour
 
     void ForwardPl1Change(Toggle change)
     {
-        F1text.text = "New Value" + ForwardPl1.isOn;
+          
     }
 
 
