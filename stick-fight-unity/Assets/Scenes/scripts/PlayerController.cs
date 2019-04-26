@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     // Parts of the prefab
-    public Rigidbody2D head, body, leftLeg, rightLeg;
+    public Rigidbody2D head, body, leftLeg, rightLeg, leftArm, rightArm;
     public Transform rightToe, leftToe;
 
     // KeyCodes that when pressed will trigger this action
@@ -20,6 +20,8 @@ public class PlayerController : MonoBehaviour
     {
         // Put an instance of the player in the scene
         Instantiate(prefab, location, Quaternion.identity);
+        //Physics.IgnoreCollision(leftLeg.GetComponent<Collider>(), leftArm.GetComponent<Collider>());
+        Physics.IgnoreCollision(rightLeg.GetComponent<Collider>(), rightArm.GetComponent<Collider>());
     }
 
     void Update()
