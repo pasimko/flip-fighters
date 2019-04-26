@@ -14,14 +14,14 @@ public class PlayerController : MonoBehaviour
     public bool isGrounded = false;
     public bool isJumping = false;
 
+    public Transform currentGun;
+
     public LayerMask groundLayer; // The map - Layer for checking collisions with any of the map
-    
-    public void Initialize(Transform prefab, Vector3 location)
+
+    private void Start()
     {
-        // Put an instance of the player in the scene
-        Instantiate(prefab, location, Quaternion.identity);
-        //Physics.IgnoreCollision(leftLeg.GetComponent<Collider>(), leftArm.GetComponent<Collider>());
-        Physics.IgnoreCollision(rightLeg.GetComponent<Collider>(), rightArm.GetComponent<Collider>());
+        Physics2D.IgnoreCollision(leftLeg.GetComponent<BoxCollider2D>(), leftArm.GetComponent<BoxCollider2D>());
+        Physics2D.IgnoreCollision(rightLeg.GetComponent<BoxCollider2D>(), rightArm.GetComponent<BoxCollider2D>());
     }
 
     void Update()
