@@ -10,9 +10,7 @@ public class GameController : MonoBehaviour
     public List<Transform> stickPlayerList = new List<Transform>();
     PlayerController player1;
     PlayerController player2;
-    public Image p1HealthBar;
-    public Image p2HealthBar;
-
+    public HealthBar player1Bar, player2Bar;
 
     void Awake()
     {
@@ -24,12 +22,7 @@ public class GameController : MonoBehaviour
 
         player1.Initialize(stickPlayer, new Vector3(Random.Range(-16, -3), 6, 10));
         player2.Initialize(stickPlayer, new Vector3(Random.Range(3, 16), 6, 10));
-
-
-
-
-        p1HealthBar.fillAmount = 0.5f;
-        p2HealthBar.fillAmount = 0.17f;
+        
 
 
 

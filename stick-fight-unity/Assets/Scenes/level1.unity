@@ -254,7 +254,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -674, y: 410}
+  m_AnchoredPosition: {x: -674, y: 403.58}
   m_SizeDelta: {x: 511.9, y: 57.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &190430107
@@ -579,7 +579,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 680, y: 410}
+  m_AnchoredPosition: {x: 680, y: 403.58}
   m_SizeDelta: {x: 511.9, y: 57.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &617532854
@@ -610,7 +610,7 @@ MonoBehaviour:
   m_FillMethod: 0
   m_FillAmount: 1
   m_FillClockwise: 1
-  m_FillOrigin: 0
+  m_FillOrigin: 1
   m_UseSpriteMesh: 0
 --- !u!222 &617532855
 CanvasRenderer:
@@ -1318,7 +1318,7 @@ PrefabInstance:
     - target: {fileID: 3349243074892327895, guid: cbef68a70ee5f184f824045f193f4979,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 410
+      value: 403.58
       objectReference: {fileID: 0}
     - target: {fileID: 3349243074892327895, guid: cbef68a70ee5f184f824045f193f4979,
         type: 3}
@@ -1359,6 +1359,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3349243074892327894, guid: cbef68a70ee5f184f824045f193f4979,
+        type: 3}
+      propertyPath: m_FillAmount
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cbef68a70ee5f184f824045f193f4979, type: 3}
@@ -1437,7 +1442,7 @@ PrefabInstance:
     - target: {fileID: 8641019034876178457, guid: bebb0960aaba64849b611d3d1acb2798,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 410
+      value: 403.58
       objectReference: {fileID: 0}
     - target: {fileID: 8641019034876178457, guid: bebb0960aaba64849b611d3d1acb2798,
         type: 3}
@@ -1478,6 +1483,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8641019034876178458, guid: bebb0960aaba64849b611d3d1acb2798,
+        type: 3}
+      propertyPath: m_FillAmount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8641019034876178458, guid: bebb0960aaba64849b611d3d1acb2798,
+        type: 3}
+      propertyPath: m_FillOrigin
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bebb0960aaba64849b611d3d1acb2798, type: 3}

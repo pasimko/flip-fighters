@@ -12,18 +12,33 @@ public class PlayerController : MonoBehaviour
     public bool isGrounded = false;
     public bool isJumping = false;
 
+    private int flips = 0;
+    private float sumAngles = 0;
+    private float deltaAngle = 0;
+    private float lastAngle = 0;
+    private float currentAngle = 0;
+
+
     public LayerMask groundLayer; // The map - Layer for checking collisions with any of the map
-    
+
+    void Start()
+    {
+        
+    }
+
     public void Initialize(Transform prefab, Vector3 location)
     {
         Instantiate(prefab, location, Quaternion.identity);
     }
+
+  
 
     void Update()
     {
         isGrounded = (Physics2D.OverlapCircle(leftToe.position, 0.2f, groundLayer) || Physics2D.OverlapCircle(rightToe.position, 0.2f, groundLayer));
         standUp();
         HandleMovement();
+        CountFlips();
     }
 
     void HandleMovement()
@@ -43,6 +58,29 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    void CountFlips()
+    {
+
+        if (!isGrounded)
+        {
+
+            currentAngle = body.transform.eulerAngles.z;
+            deltaAngle = Mathf.Abs(currentAngle - lastAngle);
+
+            sumAngles += deltaAngle;
+
+            lastAngle = currentAngle;
+
+            if (sumAngles >= 350)
+            {
+                flips++;
+            }
+
+        }
+        else { flips = 0; }
+        Debug.Log(flips.ToString());
+        
+    }
     public void standUp()
     {
         if (isGrounded)
