@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    Rigidbody2D projectile;
+    public float damage, velocity, lifetime, size;
+    public bool canHurtSelf, useGravity;
+
     //Create a projectile with these initial properties
     public void Initialize(Vector3 position, Vector3 velocity, Vector3 size, float lifetime, float damage, List<PlayerController> targets, Rigidbody2D prefab, bool physicsControlled)
     {
