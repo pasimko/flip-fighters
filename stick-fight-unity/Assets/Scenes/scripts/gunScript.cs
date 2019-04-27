@@ -5,12 +5,20 @@ using UnityEngine;
 public class gunScript : MonoBehaviour
 {
     public GameObject gunPrefab;
-    public GameObject projectilePrefab;
+    public Rigidbody2D projectilePrefab;
     public int rateOfFire, ammoCapacity;
     public Vector3 direction;
 
+    // Which player is wielding it: 0 = nobody, 1 = player1, 2 = player2
+    public int equippedBy = 0;
+    
+    bool equipped = false;
+
+    Rigidbody2D tempBullet;
+
     public void fire()
     {
-        Instantiate(projectilePrefab);
+        tempBullet = Instantiate(projectilePrefab, transform.position, transform.rotation);
+        tempBullet.owner = equippedBy;
     }
 }

@@ -13,17 +13,13 @@ public class PlayerController : MonoBehaviour
 
     public bool isGrounded = false;
     public bool isJumping = false;
-
-    public Transform currentGun;
-
     public LayerMask groundLayer; // The map - Layer for checking collisions with any of the map
-
-    private void Start()
+   
+   private void Start()
     {
         Physics2D.IgnoreCollision(leftLeg.GetComponent<BoxCollider2D>(), leftArm.GetComponent<BoxCollider2D>());
         Physics2D.IgnoreCollision(rightLeg.GetComponent<BoxCollider2D>(), rightArm.GetComponent<BoxCollider2D>());
     }
-
     void Update()
     {
         isGrounded = (Physics2D.OverlapCircle(leftToe.position, 0.2f, groundLayer) || Physics2D.OverlapCircle(rightToe.position, 0.2f, groundLayer));
