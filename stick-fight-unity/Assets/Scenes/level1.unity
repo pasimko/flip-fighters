@@ -330,6 +330,56 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 6846690232966257117, guid: 1d7bd96b5d485ce4e9c6218c31381ac0,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.5696774
+      objectReference: {fileID: 0}
+    - target: {fileID: 7175784224770052777, guid: 1d7bd96b5d485ce4e9c6218c31381ac0,
+        type: 3}
+      propertyPath: m_AngleLimits.m_LowerAngle
+      value: -145
+      objectReference: {fileID: 0}
+    - target: {fileID: 7877457358764580392, guid: 1d7bd96b5d485ce4e9c6218c31381ac0,
+        type: 3}
+      propertyPath: m_ConnectedAnchor.x
+      value: -0.44499823
+      objectReference: {fileID: 0}
+    - target: {fileID: 7877457358764580392, guid: 1d7bd96b5d485ce4e9c6218c31381ac0,
+        type: 3}
+      propertyPath: m_UseLimits
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7877457358764580392, guid: 1d7bd96b5d485ce4e9c6218c31381ac0,
+        type: 3}
+      propertyPath: m_AngleLimits.m_LowerAngle
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 7877457358764580392, guid: 1d7bd96b5d485ce4e9c6218c31381ac0,
+        type: 3}
+      propertyPath: m_AngleLimits.m_UpperAngle
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 7877457359027337520, guid: 1d7bd96b5d485ce4e9c6218c31381ac0,
+        type: 3}
+      propertyPath: m_ConnectedAnchor.x
+      value: 0.43000174
+      objectReference: {fileID: 0}
+    - target: {fileID: 7877457359027337520, guid: 1d7bd96b5d485ce4e9c6218c31381ac0,
+        type: 3}
+      propertyPath: m_UseLimits
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7877457359113042910, guid: 1d7bd96b5d485ce4e9c6218c31381ac0,
+        type: 3}
+      propertyPath: m_AngleLimits.m_LowerAngle
+      value: -190
+      objectReference: {fileID: 0}
+    - target: {fileID: 7877457359113042910, guid: 1d7bd96b5d485ce4e9c6218c31381ac0,
+        type: 3}
+      propertyPath: m_AngleLimits.m_UpperAngle
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1d7bd96b5d485ce4e9c6218c31381ac0, type: 3}
 --- !u!1 &668843995
@@ -540,6 +590,16 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 11
       objectReference: {fileID: 0}
+    - target: {fileID: 7877457358660580404, guid: 1d7bd96b5d485ce4e9c6218c31381ac0,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 7877457359912609711, guid: 1d7bd96b5d485ce4e9c6218c31381ac0,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 9187080482305129047, guid: 1d7bd96b5d485ce4e9c6218c31381ac0,
         type: 3}
       propertyPath: right
@@ -559,16 +619,6 @@ PrefabInstance:
         type: 3}
       propertyPath: attack
       value: 274
-      objectReference: {fileID: 0}
-    - target: {fileID: 7877457358660580404, guid: 1d7bd96b5d485ce4e9c6218c31381ac0,
-        type: 3}
-      propertyPath: m_Layer
-      value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: 7877457359912609711, guid: 1d7bd96b5d485ce4e9c6218c31381ac0,
-        type: 3}
-      propertyPath: m_Layer
-      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1d7bd96b5d485ce4e9c6218c31381ac0, type: 3}

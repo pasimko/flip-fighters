@@ -14,9 +14,15 @@ public class PlayerController : MonoBehaviour
     public bool isGrounded = false;
     public bool isJumping = false;
     public LayerMask groundLayer; // The map - Layer for checking collisions with any of the map
+
+
+    public bool hasGun = false;
+    public GameObject currentGun;
+    public Transform meleePrefab;
    
    private void Start()
     {
+        // Body can get stuck in itself without this
         Physics2D.IgnoreCollision(leftLeg.GetComponent<BoxCollider2D>(), leftArm.GetComponent<BoxCollider2D>());
         Physics2D.IgnoreCollision(rightLeg.GetComponent<BoxCollider2D>(), rightArm.GetComponent<BoxCollider2D>());
     }
@@ -44,7 +50,12 @@ public class PlayerController : MonoBehaviour
         }
         if (Input.GetKeyDown(attack))
         {
-
+            if (hasGun) {
+                currentGun.GetComponent<gunScript>().fire();
+            }
+            else {
+                Instantiate(meleePrefab);
+            }
         }
     }
 
@@ -58,6 +69,5 @@ public class PlayerController : MonoBehaviour
             leftLeg.AddForce(new Vector2(0, -40));
             body.AddTorque(-body.angularVelocity);
         }
-
     }
 }

@@ -173,7 +173,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gunPrefab: {fileID: 0}
-  projectilePrefab: {fileID: 2398457961944200698, guid: 0e0ffb8f862e2c16f85eb00b581fa431,
+  projectilePrefab: {fileID: 4750932031165876686, guid: 0e0ffb8f862e2c16f85eb00b581fa431,
     type: 3}
   rateOfFire: 0
   ammoCapacity: 0

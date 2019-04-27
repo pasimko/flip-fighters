@@ -5,7 +5,7 @@ using UnityEngine;
 public class gunScript : MonoBehaviour
 {
     public GameObject gunPrefab;
-    public Rigidbody2D projectilePrefab;
+    public GameObject projectilePrefab;
     public int rateOfFire, ammoCapacity;
     public Vector3 direction;
 
@@ -14,11 +14,11 @@ public class gunScript : MonoBehaviour
     
     bool equipped = false;
 
-    Rigidbody2D tempBullet;
+    GameObject tempBullet;
 
     public void fire()
     {
         tempBullet = Instantiate(projectilePrefab, transform.position, transform.rotation);
-        tempBullet.owner = equippedBy;
+        tempBullet.GetComponent<Projectile>().owner = equippedBy;
     }
 }
