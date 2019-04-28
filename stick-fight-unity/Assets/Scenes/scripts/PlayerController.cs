@@ -12,18 +12,15 @@ public class PlayerController : MonoBehaviour
     public bool isGrounded = false;
     public bool isJumping = false;
 
-    private int flips = 0;
-    private float sumAngles = 0;
-    private float deltaAngle = 0;
-    private float lastAngle = 0;
-    private float currentAngle = 0;
-
+    private float totalDegrees = 0;
+    private Vector3 lastPoint;
 
     public LayerMask groundLayer; // The map - Layer for checking collisions with any of the map
 
     void Start()
     {
-        
+        lastPoint = transform.TransformDirection(Vector3.right);
+        lastPoint.y = 0;
     }
 
     public void Initialize(Transform prefab, Vector3 location)
@@ -31,14 +28,20 @@ public class PlayerController : MonoBehaviour
         Instantiate(prefab, location, Quaternion.identity);
     }
 
-  
-
     void Update()
     {
         isGrounded = (Physics2D.OverlapCircle(leftToe.position, 0.2f, groundLayer) || Physics2D.OverlapCircle(rightToe.position, 0.2f, groundLayer));
         standUp();
         HandleMovement();
-        CountFlips();
+        if (!isGrounded)
+        {
+            CountFlips();
+            Debug.Log(nrOfRotations.ToString());
+        }
+        else
+        {
+            totalDegrees = 0;
+        }     
     }
 
     void HandleMovement()
@@ -58,28 +61,27 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public int nrOfRotations
+    {
+        get
+        {
+            return ((int)totalDegrees) / 360;
+        }
+    }
+
     void CountFlips()
     {
+        Transform tempBody = body.GetComponent<Transform>();
+        Vector3 facing = tempBody.TransformDirection(Vector3.right);
+        facing.y = 0;
 
-        if (!isGrounded)
-        {
+        float angle = Vector3.Angle(lastPoint, facing);
+        if (Vector3.Cross(lastPoint, facing).y < 0)
+            angle *= -1;
 
-            currentAngle = body.transform.eulerAngles.z;
-            deltaAngle = Mathf.Abs(currentAngle - lastAngle);
+        totalDegrees += angle;
+        lastPoint = facing;
 
-            sumAngles += deltaAngle;
-
-            lastAngle = currentAngle;
-
-            if (sumAngles >= 350)
-            {
-                flips++;
-            }
-
-        }
-        else { flips = 0; }
-        Debug.Log(flips.ToString());
-        
     }
     public void standUp()
     {
