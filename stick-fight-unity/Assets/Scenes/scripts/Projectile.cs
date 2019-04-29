@@ -7,22 +7,26 @@ public class Projectile : MonoBehaviour
     public float damage, velocity, lifetime, size;
     public bool useGravity;
 
-    public int owner;
+    public GameObject owner;
 
-    void Awake() {
-        //velocity = new Vector2(transform.right * velocity * 100f, 0f);
+    public 
+
+    void Start() {
+        //Set the velocity based on the rotation of the bullet. 
+        //Bullet is rotated based on the gun's rotation upon instantiation
         gameObject.GetComponent<Rigidbody2D>().AddForce(transform.right * velocity * 100);
+        Physics2D.IgnoreLayerCollision(0, owner.layer);
     }
 
     void Update() {
-        if (gameObject.transform.position.y < -50) {
+        //Destroy if it's off the map
+        if (gameObject.transform.position.y < -20) {
             Destroy(gameObject);
         }
     }
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log("bullet collision");
         Destroy(gameObject);
     }
 }
