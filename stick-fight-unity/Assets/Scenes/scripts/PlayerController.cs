@@ -17,7 +17,7 @@ public class PlayerController : MonoBehaviour
 
 
     public bool hasGun = false;
-    public GameObject currentGun;
+    public gunScript currentGun;
     public Transform meleePrefab;
    
    private void Start()
@@ -51,7 +51,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(attack))
         {
             if (hasGun) {
-                currentGun.GetComponent<gunScript>().fire();
+                currentGun.fire();
             }
             else {
                 Instantiate(meleePrefab);
