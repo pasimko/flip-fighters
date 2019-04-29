@@ -12,10 +12,9 @@ public class GameController : MonoBehaviour
     PlayerController player2;
     public HealthBar player1Bar, player2Bar;
 
+    
     void Awake()
     {
-
-      
 
         player1 = new PlayerController();
         player2 = new PlayerController();
@@ -31,4 +30,6 @@ public class GameController : MonoBehaviour
     {
         SceneManager.LoadScene(sceneName: "level1");
     }
+
+    
 }

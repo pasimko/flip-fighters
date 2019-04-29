@@ -9,6 +9,6 @@ public class HealthBar : MonoBehaviour
     
     void UpdateHealth()
     {
-        
+
     }
 }
