@@ -17,26 +17,22 @@ public class PlayerController : MonoBehaviour
 
     private float totalDegrees = 0;
     private Vector3 lastPoint;
-
-    public LayerMask groundLayer; // The map - Layer for checking collisions with any of the map
+    
+    public bool hasGun = false;
+    public gunScript currentGun;
+    public Transform meleePrefab;
 
     void Start()
     {
         lastPoint = transform.TransformDirection(Vector3.right);
         lastPoint.y = 0;
-    }
-
-
-    public bool hasGun = false;
-    public gunScript currentGun;
-    public Transform meleePrefab;
-   
-   private void Start()
-    {
         // Body can get stuck in itself without this
         Physics2D.IgnoreCollision(leftLeg.GetComponent<BoxCollider2D>(), leftArm.GetComponent<BoxCollider2D>());
         Physics2D.IgnoreCollision(rightLeg.GetComponent<BoxCollider2D>(), rightArm.GetComponent<BoxCollider2D>());
     }
+
+
+
     void Update()
     {
         isGrounded = (Physics2D.OverlapCircle(leftToe.position, 0.2f, groundLayer) || Physics2D.OverlapCircle(rightToe.position, 0.2f, groundLayer));
