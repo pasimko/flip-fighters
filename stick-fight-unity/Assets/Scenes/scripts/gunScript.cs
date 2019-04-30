@@ -26,8 +26,13 @@ public class gunScript : MonoBehaviour
     public void fire()
     {
         tempBullet = Instantiate(projectilePrefab, barrel.position, transform.rotation);
-        Debug.Log("a");
         tempBullet.gameObject.GetComponent<Projectile>().owner = equippedBy;
+        Physics2D.IgnoreCollision(tempBullet.GetComponent<Collider2D>(), equippedBy.GetComponent<PlayerController>().head.GetComponent<Collider2D>());
+        Physics2D.IgnoreCollision(tempBullet.GetComponent<Collider2D>(), equippedBy.GetComponent<PlayerController>().body.GetComponent<Collider2D>());
+        Physics2D.IgnoreCollision(tempBullet.GetComponent<Collider2D>(), equippedBy.GetComponent<PlayerController>().leftLeg.GetComponent<Collider2D>());
+        Physics2D.IgnoreCollision(tempBullet.GetComponent<Collider2D>(), equippedBy.GetComponent<PlayerController>().rightLeg.GetComponent<Collider2D>());
+        Physics2D.IgnoreCollision(tempBullet.GetComponent<Collider2D>(), equippedBy.GetComponent<PlayerController>().leftArm.GetComponent<Collider2D>());
+        Physics2D.IgnoreCollision(tempBullet.GetComponent<Collider2D>(), equippedBy.GetComponent<PlayerController>().rightArm.GetComponent<Collider2D>());
     }
 
     void OnCollisionEnter2D(Collision2D collision) {
@@ -35,20 +40,20 @@ public class gunScript : MonoBehaviour
         if (!equipped) {
             if (collision.collider.gameObject.layer == 10 && !player1.GetComponent<PlayerController>().hasGun) {
                 Transform playerHand = GameObject.Find("player1/rightArm/gunHolder").transform;
-                equipGun(playerHand, player1);
+                equipGun(ref playerHand, ref player1);
                 gameObject.transform.localScale = new Vector3(-0.3f/0.1592316f, 0.3f, 0.3f);
                 equippedBy = player1;
             }
             else if (collision.collider.gameObject.layer == 11 && !player2.GetComponent<PlayerController>().hasGun) {
                 Transform playerHand = GameObject.Find("player2/leftArm/gunHolder").transform;
-                equipGun(playerHand, player2);
+                equipGun(ref playerHand, ref player2);
                 gameObject.transform.localScale = new Vector3(-0.3f/0.1592316f, -0.3f, 0.3f);
                 equippedBy = player2;
             }
         }
     }
     
-    void equipGun(Transform playerHand, GameObject player) {
+    void equipGun(ref Transform playerHand, ref GameObject player) {
         gameObject.layer = player.layer;
         equipped = true;
 
