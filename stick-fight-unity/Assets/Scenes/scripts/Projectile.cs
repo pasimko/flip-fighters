@@ -4,21 +4,26 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    Rigidbody2D projectile;
-    //Create a projectile with these initial properties
-    public void Initialize(Vector3 position, Vector3 velocity, Vector3 size, float lifetime, float damage, List<PlayerController> targets, Rigidbody2D prefab, bool physicsControlled)
-    {
-        projectile = Instantiate(prefab, position, Quaternion.identity);
-        projectile.velocity = velocity;
+    public float damage, velocity, lifetime, size;
+    public bool useGravity;
+
+    public GameObject owner;
+
+    void Start() {
+        //Set the velocity based on the rotation of the bullet. 
+        //Bullet is rotated based on the gun's rotation upon instantiation
+        gameObject.GetComponent<Rigidbody2D>().AddForce(transform.right * velocity * 100);
     }
 
-    void OnCollisionEnter(Collision collision)
-    {
-        ContactPoint contact = collision.contacts[0];
+    void Update() {
+        //Destroy if it's off the map
+        if (gameObject.transform.position.y < -20) {
+            Destroy(gameObject);
+        }
+    }
 
-        // Rotate the object so that the y-axis faces along the normal of the surface
-        Quaternion rot = Quaternion.FromToRotation(Vector3.up, contact.normal);
-        Vector3 pos = contact.point;
+    void OnCollisionEnter2D(Collision2D collision)
+    {
         Destroy(gameObject);
     }
 }

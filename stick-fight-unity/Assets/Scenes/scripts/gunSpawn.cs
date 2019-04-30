@@ -4,16 +4,22 @@ using UnityEngine;
 
 public class gunSpawn : MonoBehaviour
 {
-    public GameObject longGun;
-    
+    private float nextActionTime = 0.0f;
+    public float period = 0.1f;
+    public GameObject auto;
+
     void Start()
     {
-        Instantiate(longGun, transform.position, transform.rotation);
-    }
 
-    
+    }
     void Update()
     {
-        
+        if (Time.time > nextActionTime)
+        {
+            nextActionTime += period;
+            Instantiate(auto, transform.position, transform.rotation);
+        }
+
+
     }
 }

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2575102191055895083}
   - component: {fileID: 2398457961944200698}
   - component: {fileID: 7273270604619413132}
+  - component: {fileID: 4750932031165876686}
   m_Layer: 0
   m_Name: boolet
   m_TagString: Untagged
@@ -118,3 +119,21 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &4750932031165876686
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1814298982964840913}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f1aca47499868e40b42f36e87746d34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 10
+  velocity: 10
+  lifetime: 0
+  size: 0
+  useGravity: 0
+  owner: 0
