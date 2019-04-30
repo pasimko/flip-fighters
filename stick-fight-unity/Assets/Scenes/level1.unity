@@ -602,7 +602,12 @@ PrefabInstance:
     - target: {fileID: 7175784224770052777, guid: 1d7bd96b5d485ce4e9c6218c31381ac0,
         type: 3}
       propertyPath: m_AngleLimits.m_LowerAngle
-      value: -145
+      value: -85
+      objectReference: {fileID: 0}
+    - target: {fileID: 7175784224770052777, guid: 1d7bd96b5d485ce4e9c6218c31381ac0,
+        type: 3}
+      propertyPath: m_AngleLimits.m_UpperAngle
+      value: 110
       objectReference: {fileID: 0}
     - target: {fileID: 7877457358764580392, guid: 1d7bd96b5d485ce4e9c6218c31381ac0,
         type: 3}
@@ -668,6 +673,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7877457359496488588, guid: 1d7bd96b5d485ce4e9c6218c31381ac0,
+        type: 3}
+      propertyPath: m_AngleLimits.m_LowerAngle
+      value: -110
+      objectReference: {fileID: 0}
+    - target: {fileID: 7877457359496488588, guid: 1d7bd96b5d485ce4e9c6218c31381ac0,
+        type: 3}
+      propertyPath: m_AngleLimits.m_UpperAngle
+      value: 85
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1d7bd96b5d485ce4e9c6218c31381ac0, type: 3}
@@ -2729,10 +2744,30 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7175784224770052777, guid: 1d7bd96b5d485ce4e9c6218c31381ac0,
+        type: 3}
+      propertyPath: m_AngleLimits.m_LowerAngle
+      value: -85
+      objectReference: {fileID: 0}
+    - target: {fileID: 7175784224770052777, guid: 1d7bd96b5d485ce4e9c6218c31381ac0,
+        type: 3}
+      propertyPath: m_AngleLimits.m_UpperAngle
+      value: 110
+      objectReference: {fileID: 0}
     - target: {fileID: 7877457358764580392, guid: 1d7bd96b5d485ce4e9c6218c31381ac0,
         type: 3}
       propertyPath: m_ConnectedAnchor.x
       value: -0.44499823
+      objectReference: {fileID: 0}
+    - target: {fileID: 7877457358764580392, guid: 1d7bd96b5d485ce4e9c6218c31381ac0,
+        type: 3}
+      propertyPath: m_AngleLimits.m_LowerAngle
+      value: -110
+      objectReference: {fileID: 0}
+    - target: {fileID: 7877457358764580392, guid: 1d7bd96b5d485ce4e9c6218c31381ac0,
+        type: 3}
+      propertyPath: m_AngleLimits.m_UpperAngle
+      value: 85
       objectReference: {fileID: 0}
     - target: {fileID: 7877457359027337520, guid: 1d7bd96b5d485ce4e9c6218c31381ac0,
         type: 3}
