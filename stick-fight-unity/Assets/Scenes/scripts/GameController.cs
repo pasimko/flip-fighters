@@ -15,7 +15,7 @@ public class GameController : MonoBehaviour
     
     void Awake()
     {
-
+        Time.timeScale = 1.0f;
         player1 = new PlayerController();
         player2 = new PlayerController();
 
