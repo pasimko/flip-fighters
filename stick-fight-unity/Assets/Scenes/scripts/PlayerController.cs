@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    // Parts of the prefab
     public Rigidbody2D head, body, leftLeg, rightLeg;
     public Transform rightToe, leftToe;
 
+    // KeyCodes that when pressed will trigger this action
     public KeyCode right, left, jump, attack, block;
 
     public bool isGrounded = false;
@@ -25,6 +27,7 @@ public class PlayerController : MonoBehaviour
 
     public void Initialize(Transform prefab, Vector3 location)
     {
+        // Put an instance of the player in the scene
         Instantiate(prefab, location, Quaternion.identity);
     }
 
@@ -58,6 +61,10 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(right))
         {
             head.AddForce(new Vector2(500, 0));
+        }
+        if (Input.GetKeyDown(attack))
+        {
+
         }
     }
 
@@ -95,21 +102,4 @@ public class PlayerController : MonoBehaviour
         }
 
     }
-    float getTorque()
-    {
-        //Get the current rotation, and add a desired rotation to move to
-        float restoringTorque = body.transform.rotation.eulerAngles.z;
-        restoringTorque = Mathf.Sin(0.01745f*restoringTorque);
-        float restoringTorqueVel = body.angularVelocity;
-        restoringTorqueVel = Mathf.Sin(0.01745f * restoringTorqueVel);
-
-        /*torque = spring coeff * dist from desired angle * axis of rot
-         *      + damping coeff * dist from desired angvel * axis of rot
-         */
-        float springTorque = 1f * restoringTorque + 1f * restoringTorqueVel;
-        Debug.Log(springTorque);
-        //Debug.Log(springTorque);
-        return springTorque;
-    }
-
 }
