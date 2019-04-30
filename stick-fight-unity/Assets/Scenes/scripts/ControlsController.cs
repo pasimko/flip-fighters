@@ -30,8 +30,26 @@ public class ControlsController : MonoBehaviour
     public Toggle BlockPl2;
 
     string F1string;
+    string B1string;
+    string J1string;
+    string A1string;
+    string BL1string;
+    string F2string;
+    string B2string;
+    string J2string;
+    string A2string;
+    string BL2string;
 
     public Text F1text;
+    public Text B1text;
+    public Text J1text;
+    public Text A1text;
+    public Text BL1text;
+    public Text F2text;
+    public Text B2text;
+    public Text J2text;
+    public Text A2text;
+    public Text BL2text;
 
     private int[] values;
     private KeyCode PlayerInput;
@@ -40,50 +58,63 @@ public class ControlsController : MonoBehaviour
     {
         values = (int[])System.Enum.GetValues(typeof(KeyCode));
 
+        Toggle[] AllToggles = new Toggle[10] { ForwardPl1, BackPl1, JumpPl1, AttackPl1, BlockPl1, ForwardPl2, BackPl2, JumpPl2, AttackPl2, BlockPl2 };
+
         ForwardPl1.onValueChanged.AddListener(delegate
         {
-            ToggleChange(ForwardPl1);
+            ToggleChange(ForwardPl1,AllToggles);
         });
         BackPl1.onValueChanged.AddListener(delegate
         {
-            ToggleChange(BackPl1);
+            ToggleChange(BackPl1,AllToggles);
         });
         JumpPl1.onValueChanged.AddListener(delegate
         {
-            ToggleChange(JumpPl1);
+            ToggleChange(JumpPl1,AllToggles);
         });
         AttackPl1.onValueChanged.AddListener(delegate
         {
-            ToggleChange(AttackPl1);
+            ToggleChange(AttackPl1,AllToggles);
         });
         BlockPl1.onValueChanged.AddListener(delegate
         {
-            ToggleChange(BlockPl1);
+            ToggleChange(BlockPl1,AllToggles);
         });
         ForwardPl2.onValueChanged.AddListener(delegate
         {
-            ToggleChange(ForwardPl2);
+            ToggleChange(ForwardPl2,AllToggles);
         });
         BackPl2.onValueChanged.AddListener(delegate
         {
-            ToggleChange(BackPl2);
+            ToggleChange(BackPl2,AllToggles);
         });
         JumpPl2.onValueChanged.AddListener(delegate
         {
-            ToggleChange(JumpPl2);
+            ToggleChange(JumpPl2,AllToggles);
         });
         AttackPl2.onValueChanged.AddListener(delegate
         {
-            ToggleChange(AttackPl2);
+            ToggleChange(AttackPl2,AllToggles);
         });
         BlockPl2.onValueChanged.AddListener(delegate
         {
-            ToggleChange(BlockPl2);
+            ToggleChange(BlockPl2,AllToggles);
         });
     }
 
+    
+
     private void Update()
     {
+
+        if (Input.GetKeyDown(Pl1ForwardInput))
+        {
+            Debug.Log("PL1 Forward Pressed");
+        }
+        if (Input.GetKeyDown(PL1AttackInput))
+        {
+            Debug.Log("PL1 Attack Pressed");
+        }
         if (ForwardPl1.isOn == true)
         {
             foreach (KeyCode pInput in values)
@@ -91,22 +122,194 @@ public class ControlsController : MonoBehaviour
                 if (Input.GetKey(pInput))
                 {
                     PlayerInput = pInput;
-                    if (PlayerInput != KeyCode.Mouse0 )
+                    if (PlayerInput != KeyCode.Mouse0)
                     {
                         F1string = PlayerInput.ToString();
                         F1text.text = F1string;
                         Debug.Log(pInput);
                         ForwardPl1.isOn = false;
+                        Pl1ForwardInput = PlayerInput;
+
                     }
                 }
             }
         }
-        
+        if (BackPl1.isOn == true)
+        {
+            foreach (KeyCode pInput in values)
+            {
+                if (Input.GetKey(pInput))
+                {
+                    PlayerInput = pInput;
+                    if (PlayerInput != KeyCode.Mouse0)
+                    {
+                        B1string = PlayerInput.ToString();
+                        B1text.text = B1string;
+                        Debug.Log(pInput);
+                        BackPl1.isOn = false;
+                        Pl1BackInput = PlayerInput;
+                    }
+                }
+            }
+        }
+        if (JumpPl1.isOn == true)
+        {
+            foreach (KeyCode pInput in values)
+            {
+                if (Input.GetKey(pInput))
+                {
+                    PlayerInput = pInput;
+                    if (PlayerInput != KeyCode.Mouse0)
+                    {
+                        J1string = PlayerInput.ToString();
+                        J1text.text = J1string;
+                        Debug.Log(pInput);
+                        JumpPl1.isOn = false;
+                        Pl1JumpInput = PlayerInput;
+                    }
+                }
+            }
+        }
+        if (AttackPl1.isOn == true)
+        {
+            foreach (KeyCode pInput in values)
+            {
+                if (Input.GetKey(pInput))
+                {
+                    PlayerInput = pInput;
+                    if (PlayerInput != KeyCode.Mouse0)
+                    {
+                        A1string = PlayerInput.ToString();
+                        A1text.text = A1string;
+                        Debug.Log(pInput);
+                        AttackPl1.isOn = false;
+                        PL1AttackInput = PlayerInput;
+                    }
+                }
+            }
+        }
+        if (BlockPl1.isOn == true)
+        {
+            foreach (KeyCode pInput in values)
+            {
+                if (Input.GetKey(pInput))
+                {
+                    PlayerInput = pInput;
+                    if (PlayerInput != KeyCode.Mouse0)
+                    {
+                        BL1string = PlayerInput.ToString();
+                        BL1text.text = BL1string;
+                        Debug.Log(pInput);
+                        BlockPl1.isOn = false;
+                        Pl1BlockInput = PlayerInput;
+                    }
+                }
+            }
+        }
+        if (ForwardPl2.isOn == true)
+        {
+            foreach (KeyCode pInput in values)
+            {
+                if (Input.GetKey(pInput))
+                {
+                    PlayerInput = pInput;
+                    if (PlayerInput != KeyCode.Mouse0)
+                    {
+                        F2string = PlayerInput.ToString();
+                        F2text.text = F2string;
+                        Debug.Log(pInput);
+                        ForwardPl2.isOn = false;
+                        Pl2ForwardInput = PlayerInput;
+                    }
+                }
+            }
+        }
+        if (BackPl2.isOn == true)
+        {
+            foreach (KeyCode pInput in values)
+            {
+                if (Input.GetKey(pInput))
+                {
+                    PlayerInput = pInput;
+                    if (PlayerInput != KeyCode.Mouse0)
+                    {
+                        B2string = PlayerInput.ToString();
+                        B2text.text = B2string;
+                        Debug.Log(pInput);
+                        BackPl2.isOn = false;
+                        Pl2BackInput = PlayerInput;
+                    }
+                }
+            }
+        }
+        if (JumpPl2.isOn == true)
+        {
+            foreach (KeyCode pInput in values)
+            {
+                if (Input.GetKey(pInput))
+                {
+                    PlayerInput = pInput;
+                    if (PlayerInput != KeyCode.Mouse0)
+                    {
+                        J2string = PlayerInput.ToString();
+                        J2text.text = J2string;
+                        Debug.Log(pInput);
+                        JumpPl2.isOn = false;
+                        Pl2JumpInput = PlayerInput;
+                    }
+                }
+            }
+        }
+        if (AttackPl2.isOn == true)
+        {
+            foreach (KeyCode pInput in values)
+            {
+                if (Input.GetKey(pInput))
+                {
+                    PlayerInput = pInput;
+                    if (PlayerInput != KeyCode.Mouse0)
+                    {
+                        A2string = PlayerInput.ToString();
+                        A2text.text = A2string;
+                        Debug.Log(pInput);
+                        AttackPl2.isOn = false;
+                        Pl2AttackInput = PlayerInput;
+                    }
+                }
+            }
+        }
+        if (BlockPl2.isOn == true)
+        {
+            foreach (KeyCode pInput in values)
+            {
+                if (Input.GetKey(pInput))
+                {
+                    PlayerInput = pInput;
+                    if (PlayerInput != KeyCode.Mouse0)
+                    {
+                        BL2string = PlayerInput.ToString();
+                        BL2text.text = F2string;
+                        Debug.Log(pInput);
+                        BlockPl2.isOn = false;
+                        Pl2BlockInput = PlayerInput;
+                    }
+                }
+            }
+        }
+
+
+
     }
 
-    void ToggleChange(Toggle change)
+    void ToggleChange(Toggle change, Toggle[] alltoggles)
     {
-        Debug.Log("Hello The Toggle Changed");
+        for (int i = 0; i < alltoggles.Length; i++)
+        {
+            if (alltoggles[i] != change)
+            {
+                alltoggles[i].isOn = false;
+            }
+        }
         if (change.isOn == true)
         {
             change.image.color = Color.cyan;

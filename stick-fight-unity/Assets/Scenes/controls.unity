@@ -4828,6 +4828,15 @@ MonoBehaviour:
   AttackPl2: {fileID: 2055769195}
   BlockPl2: {fileID: 622678014}
   F1text: {fileID: 772326239}
+  B1text: {fileID: 21209445}
+  J1text: {fileID: 1801352883}
+  A1text: {fileID: 985026679}
+  BL1text: {fileID: 637074223}
+  F2text: {fileID: 1163359061}
+  B2text: {fileID: 561774}
+  J2text: {fileID: 1652201106}
+  A2text: {fileID: 1122596944}
+  BL2text: {fileID: 1718234344}
 --- !u!4 &2063880721
 Transform:
   m_ObjectHideFlags: 0
