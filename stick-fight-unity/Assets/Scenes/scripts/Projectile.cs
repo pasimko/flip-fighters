@@ -18,12 +18,12 @@ public class Projectile : MonoBehaviour
     void Update() {
         //Destroy if it's off the map
         if (gameObject.transform.position.y < -20) {
-            //Destroy(gameObject);
+            Destroy(gameObject);
         }
     }
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        //Destroy(gameObject);
+        Destroy(gameObject);
     }
 }

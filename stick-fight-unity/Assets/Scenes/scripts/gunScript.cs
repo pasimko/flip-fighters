@@ -33,6 +33,8 @@ public class gunScript : MonoBehaviour
         Physics2D.IgnoreCollision(tempBullet.GetComponent<Collider2D>(), equippedBy.GetComponent<PlayerController>().rightLeg.GetComponent<Collider2D>());
         Physics2D.IgnoreCollision(tempBullet.GetComponent<Collider2D>(), equippedBy.GetComponent<PlayerController>().leftArm.GetComponent<Collider2D>());
         Physics2D.IgnoreCollision(tempBullet.GetComponent<Collider2D>(), equippedBy.GetComponent<PlayerController>().rightArm.GetComponent<Collider2D>());
+        Physics2D.IgnoreCollision(tempBullet.GetComponent<Collider2D>(), gameObject.GetComponent<Collider2D>());
+
     }
 
     void OnCollisionEnter2D(Collision2D collision) {
