@@ -172,11 +172,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 556b077de20e0d4448b17c19f236d7c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gunPrefab: {fileID: 0}
   projectilePrefab: {fileID: 1814298982964840913, guid: 0e0ffb8f862e2c16f85eb00b581fa431,
     type: 3}
   rateOfFire: 0
   ammoCapacity: 0
   direction: {x: 0, y: 0, z: 0}
   barrel: {fileID: 7577125669969950290}
-  equippedBy: 0
+  equippedBy: {fileID: 0}
