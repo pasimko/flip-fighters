@@ -21,7 +21,8 @@ public class PlayerController : MonoBehaviour
     
     public bool hasGun = false;
     public gunScript currentGun;
-    public Transform meleePrefab;
+    public GameObject meleePrefab;
+    meleeController tempMelee;
 
     //how many seconds we wait until raising the gun
     float standCount = 0.5f;
@@ -34,8 +35,6 @@ public class PlayerController : MonoBehaviour
         lastPoint.y = 0;
         // Body can get stuck in itself without this
         Physics2D.IgnoreCollision(leftLeg.GetComponent<BoxCollider2D>(), leftArm.GetComponent<BoxCollider2D>());
-        Physics2D.IgnoreCollision(head.GetComponent<BoxCollider2D>(), leftArm.GetComponent<BoxCollider2D>());
-        Physics2D.IgnoreCollision(head.GetComponent<BoxCollider2D>(), rightArm.GetComponent<BoxCollider2D>());
         Physics2D.IgnoreCollision(rightLeg.GetComponent<BoxCollider2D>(), rightArm.GetComponent<BoxCollider2D>());
     }
 
@@ -75,12 +74,7 @@ public class PlayerController : MonoBehaviour
         }
         if (Input.GetKeyDown(attack))
         {
-            if (hasGun) {
-                currentGun.fire();
-            }
-            else {
-                Instantiate(meleePrefab);
-            }
+            doAttack();
         }
     }
 
@@ -125,13 +119,30 @@ public class PlayerController : MonoBehaviour
     {
         if (isGrounded && hasGun && standCount <= 0) {
             float currentAngle = gunHand.transform.localEulerAngles.z;
-            if (currentAngle < 120) {
-                gunHand.AddTorque((90-currentAngle));
+            if ((currentAngle < 120 && gunHand == rightArm)||(currentAngle < 360-120 && gunHand == rightArm)) {
+                float tempTorque = 90 - currentAngle;
+                if (Mathf.Abs(tempTorque) > 90)
+                {
+                    tempTorque = 90 - currentAngle;
+                }
+                gunHand.AddTorque(tempTorque);
                 gunHand.AddTorque(-gunHand.angularVelocity/10);
             }
         }
         else {
 
+        }
+    }
+    void doAttack()
+    {
+        if (hasGun)
+        {
+            currentGun.fire();
+        }
+        else
+        {
+            tempMelee = Instantiate(meleePrefab, head.position, body.transform.rotation).GetComponent<meleeController>();
+            tempMelee.owner = gameObject;
         }
     }
 }
