@@ -8,6 +8,8 @@ public class PlayerController : MonoBehaviour
     public Rigidbody2D head, body, leftLeg, rightLeg, leftArm, rightArm;
     public Transform rightToe, leftToe;
 
+    public PlayerController otherPlayer;
+
     // KeyCodes that when pressed will trigger this action
     public KeyCode right, left, jump, attack, block;
 
@@ -22,10 +24,12 @@ public class PlayerController : MonoBehaviour
     public bool hasGun = false;
     public gunScript currentGun;
     public GameObject meleePrefab;
-    meleeController tempMelee;
+    private meleeController tempMelee;
 
     //how many seconds we wait until raising the gun
     float standCount = 0.5f;
+    //Seconds between melee attacks
+    float meleeCount = 0.8f;
     //The rigidbody the gun is a child of
     public Rigidbody2D gunHand;
 
@@ -42,7 +46,10 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        meleeCount -= Time.deltaTime;
+        //Are the toes on the ground?
         isGrounded = (Physics2D.OverlapCircle(leftToe.position, 0.2f, groundLayer) || Physics2D.OverlapCircle(rightToe.position, 0.2f, groundLayer));
+        //These functions are pretty important
         standUp();
         HandleMovement();
         raiseArm();
@@ -119,7 +126,8 @@ public class PlayerController : MonoBehaviour
     {
         if (isGrounded && hasGun && standCount <= 0) {
             float currentAngle = gunHand.transform.localEulerAngles.z;
-            if ((currentAngle < 120 && gunHand == rightArm)||(currentAngle < 360-120 && gunHand == rightArm)) {
+            Debug.Log(currentAngle);
+            if ((currentAngle < 120 && gunHand == rightArm)||(currentAngle < 220 && gunHand == leftArm)) {
                 float tempTorque = 90 - currentAngle;
                 if (Mathf.Abs(tempTorque) > 90)
                 {
@@ -141,8 +149,17 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            tempMelee = Instantiate(meleePrefab, head.position, body.transform.rotation).GetComponent<meleeController>();
-            tempMelee.owner = gameObject;
+            if (meleeCount <= 0) {
+                meleeCount = 0.8f;
+                tempMelee = Instantiate(meleePrefab, head.position, body.transform.rotation).GetComponent<meleeController>();
+                tempMelee.owner = gameObject;
+                if (otherPlayer.body.transform.position.x < body.transform.position.x) {
+                    leftArm.AddTorque(-120);
+                }
+                else if (otherPlayer.body.transform.position.x > body.transform.position.x) {
+                    rightArm.AddTorque(120);
+                }
+            }
         }
     }
 }

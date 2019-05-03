@@ -607,7 +607,7 @@ PrefabInstance:
     - target: {fileID: 7175784224770052777, guid: 1d7bd96b5d485ce4e9c6218c31381ac0,
         type: 3}
       propertyPath: m_AngleLimits.m_UpperAngle
-      value: 195
+      value: 175
       objectReference: {fileID: 0}
     - target: {fileID: 7175784224770052777, guid: 1d7bd96b5d485ce4e9c6218c31381ac0,
         type: 3}
@@ -692,7 +692,7 @@ PrefabInstance:
     - target: {fileID: 7877457359496488588, guid: 1d7bd96b5d485ce4e9c6218c31381ac0,
         type: 3}
       propertyPath: m_AngleLimits.m_LowerAngle
-      value: -195
+      value: -175
       objectReference: {fileID: 0}
     - target: {fileID: 7877457359496488588, guid: 1d7bd96b5d485ce4e9c6218c31381ac0,
         type: 3}
@@ -715,6 +715,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 7987507272095995194, guid: bcd212a8ff9594d45ac9ab66101bf66e,
         type: 3}
+    - target: {fileID: 9187080482305129047, guid: 1d7bd96b5d485ce4e9c6218c31381ac0,
+        type: 3}
+      propertyPath: otherPlayer
+      value: 
+      objectReference: {fileID: 1153069445}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1d7bd96b5d485ce4e9c6218c31381ac0, type: 3}
 --- !u!4 &451354090 stripped
@@ -1261,6 +1266,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 747741236}
   m_CullTransparentMesh: 0
+--- !u!114 &813022941 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9187080482305129047, guid: 1d7bd96b5d485ce4e9c6218c31381ac0,
+    type: 3}
+  m_PrefabInstance: {fileID: 451354089}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82bd9a2b45ffd494babb4c859d53ea61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &871406844
 GameObject:
   m_ObjectHideFlags: 0
@@ -1791,6 +1808,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1118312436}
   m_CullTransparentMesh: 0
+--- !u!114 &1153069445 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9187080482305129047, guid: 1d7bd96b5d485ce4e9c6218c31381ac0,
+    type: 3}
+  m_PrefabInstance: {fileID: 1990878258}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82bd9a2b45ffd494babb4c859d53ea61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1201554759
 GameObject:
   m_ObjectHideFlags: 0
@@ -2795,7 +2824,7 @@ PrefabInstance:
     - target: {fileID: 7175784224770052777, guid: 1d7bd96b5d485ce4e9c6218c31381ac0,
         type: 3}
       propertyPath: m_AngleLimits.m_UpperAngle
-      value: 195
+      value: 175
       objectReference: {fileID: 0}
     - target: {fileID: 7877457358764580392, guid: 1d7bd96b5d485ce4e9c6218c31381ac0,
         type: 3}
@@ -2845,7 +2874,7 @@ PrefabInstance:
     - target: {fileID: 7877457359496488588, guid: 1d7bd96b5d485ce4e9c6218c31381ac0,
         type: 3}
       propertyPath: m_AngleLimits.m_LowerAngle
-      value: -195
+      value: -175
       objectReference: {fileID: 0}
     - target: {fileID: 7877457359496488588, guid: 1d7bd96b5d485ce4e9c6218c31381ac0,
         type: 3}
@@ -2888,6 +2917,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 7987507272095995194, guid: bcd212a8ff9594d45ac9ab66101bf66e,
         type: 3}
+    - target: {fileID: 9187080482305129047, guid: 1d7bd96b5d485ce4e9c6218c31381ac0,
+        type: 3}
+      propertyPath: otherPlayer
+      value: 
+      objectReference: {fileID: 813022941}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1d7bd96b5d485ce4e9c6218c31381ac0, type: 3}
 --- !u!4 &1990878259 stripped
