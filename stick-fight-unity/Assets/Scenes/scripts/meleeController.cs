@@ -22,8 +22,11 @@ public class meleeController : MonoBehaviour
     {
         if (collision.gameObject.tag != owner.tag)
         {
-            collision.GetComponent<Rigidbody2D>().AddForce(Vector2.up * 50f * knockbackMult * knockbackMult);
+            Debug.Log(knockbackMult);
+            collision.GetComponent<Rigidbody2D>().AddForce(Vector2.up * 40f * knockbackMult * knockbackMult);
             collision.GetComponent<Rigidbody2D>().AddExplosionForce(500*knockbackMult, owner.GetComponent<PlayerController>().body.position, 5f, 5f*knockbackMult);
+            
+            collision.transform.parent.gameObject.GetComponent<PlayerController>().health -= damageMult*2;
             Destroy(gameObject);
         }
     }

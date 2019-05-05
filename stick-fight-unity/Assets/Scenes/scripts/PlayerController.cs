@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -33,6 +34,9 @@ public class PlayerController : MonoBehaviour
     //The rigidbody the gun is a child of
     public Rigidbody2D gunHand;
 
+    public float health = 100;
+    public Image healthBar;
+
     void Start()
     {
         lastPoint = transform.TransformDirection(Vector3.right);
@@ -61,7 +65,8 @@ public class PlayerController : MonoBehaviour
         else
         {
             totalDegrees = 0;
-        }     
+        }
+        healthBar.fillAmount = health/100;     
     }
 
     void HandleMovement()
@@ -153,6 +158,10 @@ public class PlayerController : MonoBehaviour
                 meleeCount = 0.8f;
                 tempMelee = Instantiate(meleePrefab, head.position, body.transform.rotation).GetComponent<meleeController>();
                 tempMelee.owner = gameObject;
+
+                tempMelee.damageMult = numberFlips+1;
+                tempMelee.knockbackMult = numberFlips+1;
+
                 if (otherPlayer.body.transform.position.x < body.transform.position.x) {
                     leftArm.AddTorque(-120);
                 }

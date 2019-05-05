@@ -1915,7 +1915,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14a32b60957e08d46ba6bc179ba677fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  period: 10
+  period: 100
   auto: {fileID: 4719824344782205066, guid: d63e6139a31f4499a9f88792096219d4, type: 3}
 --- !u!4 &1346604913
 Transform:
