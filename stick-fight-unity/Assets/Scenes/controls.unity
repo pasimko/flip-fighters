@@ -1657,7 +1657,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -576, y: 60}
+  m_AnchoredPosition: {x: -578, y: 60}
   m_SizeDelta: {x: 160, y: 59.65}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &676402792
@@ -1673,21 +1673,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 0
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.08962262, g: 0.8122775, b: 1, a: 0.8117647}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_HighlightedColor: {r: 0.6886792, g: 0.6886792, b: 0.6886792, a: 1}
+    m_PressedColor: {r: 1, g: 1, b: 1, a: 1}
+    m_DisabledColor: {r: 1, g: 1, b: 1, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
+    m_HighlightedSprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
     m_PressedSprite: {fileID: 0}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
@@ -1698,7 +1698,7 @@ MonoBehaviour:
   m_Interactable: 1
   m_TargetGraphic: {fileID: 221916387}
   toggleTransition: 1
-  graphic: {fileID: 859555714}
+  graphic: {fileID: 0}
   m_Group: {fileID: 0}
   onValueChanged:
     m_PersistentCalls:
@@ -1776,7 +1776,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: bc7e04e387aa385409dc11330bef147c, type: 3}
-    m_FontSize: 65
+    m_FontSize: 60
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -4817,6 +4817,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe190256548a0564a84bd81d9148ec95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ForwardPl1: {fileID: 676402792}
+  BackPl1: {fileID: 1914352055}
+  JumpPl1: {fileID: 33012153}
+  AttackPl1: {fileID: 231742533}
+  BlockPl1: {fileID: 1625572903}
+  ForwardPl2: {fileID: 1110733298}
+  BackPl2: {fileID: 2055481052}
+  JumpPl2: {fileID: 1880486713}
+  AttackPl2: {fileID: 2055769195}
+  BlockPl2: {fileID: 622678014}
+  F1text: {fileID: 772326239}
+  B1text: {fileID: 21209445}
+  J1text: {fileID: 1801352883}
+  A1text: {fileID: 985026679}
+  BL1text: {fileID: 637074223}
+  F2text: {fileID: 1163359061}
+  B2text: {fileID: 561774}
+  J2text: {fileID: 1652201106}
+  A2text: {fileID: 1122596944}
+  BL2text: {fileID: 1718234344}
 --- !u!4 &2063880721
 Transform:
   m_ObjectHideFlags: 0
