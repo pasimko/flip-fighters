@@ -8,6 +8,7 @@ public class meleeController : MonoBehaviour
     public GameObject owner;
     public float damageMult = 1;
     public float knockbackMult = 1;
+    bool hasCollided = false;
 
     // Update is called once per frame
     void Update()
@@ -20,14 +21,14 @@ public class meleeController : MonoBehaviour
     }
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag != owner.tag)
+        if (collision.gameObject.tag != owner.tag && !hasCollided)
         {
             Debug.Log(knockbackMult);
             collision.GetComponent<Rigidbody2D>().AddForce(Vector2.up * 40f * knockbackMult * knockbackMult);
             collision.GetComponent<Rigidbody2D>().AddExplosionForce(500*knockbackMult, owner.GetComponent<PlayerController>().body.position, 5f, 5f*knockbackMult);
-            
-            collision.transform.parent.gameObject.GetComponent<PlayerController>().health -= damageMult*2;
             Destroy(gameObject);
+            collision.transform.parent.gameObject.GetComponent<PlayerController>().health -= damageMult*2;
+            hasCollided = true;
         }
     }
 }
