@@ -37,6 +37,8 @@ public class PlayerController : MonoBehaviour
     public float health = 100;
     public Image healthBar;
 
+    public bool paused;
+
     void Start()
     {
         lastPoint = transform.TransformDirection(Vector3.right);
@@ -50,21 +52,25 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        meleeCount -= Time.deltaTime;
         //Are the toes on the ground?
         isGrounded = (Physics2D.OverlapCircle(leftToe.position, 0.2f, groundLayer) || Physics2D.OverlapCircle(rightToe.position, 0.2f, groundLayer));
         //These functions are pretty important
-        standUp();
-        HandleMovement();
-        raiseArm();
-        if (!isGrounded)
+        if (!paused)
         {
-            CountFlips();
-            Debug.Log(numberFlips.ToString());
-        }
-        else
-        {
-            totalDegrees = 0;
+            meleeCount -= Time.deltaTime;
+            standUp();
+            HandleMovement();
+            raiseArm();
+
+            if (!isGrounded)
+            {
+                CountFlips();
+                Debug.Log(numberFlips.ToString());
+            }
+            else
+            {
+                totalDegrees = 0;
+            }
         }
         healthBar.fillAmount = health/100;     
     }

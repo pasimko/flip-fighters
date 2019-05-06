@@ -6,8 +6,6 @@ using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
-    public List<Transform> stickPlayerList = new List<Transform>();
-    public HealthBar player1Bar, player2Bar;
     public Transform player1;
     public Transform player2;
 
@@ -20,6 +18,11 @@ public class GameController : MonoBehaviour
     {
         SceneManager.LoadScene(sceneName: "level1");
     }
+    private void Update()
+    {
+        player1.GetComponent<PlayerController>().paused = gameObject.GetComponent<PauseScript>().paused;
+        player2.GetComponent<PlayerController>().paused = gameObject.GetComponent<PauseScript>().paused;
+    }
 
-    
+
 }

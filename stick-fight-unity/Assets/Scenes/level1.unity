@@ -1082,7 +1082,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1421218023}
+      - m_Target: {fileID: 0}
         m_MethodName: showSettingsPanel
         m_Mode: 1
         m_Arguments:
@@ -1216,7 +1216,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1421218023}
+      - m_Target: {fileID: 0}
         m_MethodName: openMainMenu
         m_Mode: 1
         m_Arguments:
@@ -1437,7 +1437,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1421218023}
+      - m_Target: {fileID: 0}
         m_MethodName: showControlPanel
         m_Mode: 1
         m_Arguments:
@@ -1628,6 +1628,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &998445712 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7877457359806388967, guid: 1d7bd96b5d485ce4e9c6218c31381ac0,
+    type: 3}
+  m_PrefabInstance: {fileID: 1990878258}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1013899149
 GameObject:
   m_ObjectHideFlags: 0
@@ -1890,6 +1896,12 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!4 &1260310514 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7877457359806388967, guid: 1d7bd96b5d485ce4e9c6218c31381ac0,
+    type: 3}
+  m_PrefabInstance: {fileID: 451354089}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1346604911
 GameObject:
   m_ObjectHideFlags: 0
@@ -1901,8 +1913,9 @@ GameObject:
   - component: {fileID: 1346604913}
   - component: {fileID: 1346604912}
   - component: {fileID: 1346604914}
+  - component: {fileID: 1346604915}
   m_Layer: 0
-  m_Name: spawner
+  m_Name: gameController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1948,11 +1961,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a968608f8f7c32a4db25d3b3cca72d1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stickPlayerList: []
-  player1Bar: {fileID: 0}
-  player2Bar: {fileID: 0}
-  player1: {fileID: 0}
-  player2: {fileID: 0}
+  player1: {fileID: 1260310514}
+  player2: {fileID: 998445712}
+--- !u!114 &1346604915
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1346604911}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3889b3ae4f9fe38468b36607e5a0fc2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pauseMenu: {fileID: 1749092174}
+  paused: 0
 --- !u!1 &1421218022
 GameObject:
   m_ObjectHideFlags: 0
@@ -1965,7 +1989,6 @@ GameObject:
   - component: {fileID: 1421218026}
   - component: {fileID: 1421218025}
   - component: {fileID: 1421218024}
-  - component: {fileID: 1421218023}
   m_Layer: 5
   m_Name: UI
   m_TagString: Untagged
@@ -1973,19 +1996,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1421218023
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1421218022}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3889b3ae4f9fe38468b36607e5a0fc2f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pauseMenu: {fileID: 1749092174}
 --- !u!114 &1421218024
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2148,7 +2158,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1421218023}
+      - m_Target: {fileID: 0}
         m_MethodName: nextMap
         m_Mode: 1
         m_Arguments:

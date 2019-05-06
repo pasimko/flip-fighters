@@ -11,7 +11,7 @@ public class PauseScript : MonoBehaviour
 
 
 
-    private bool paused = false;
+    public bool paused = false;
 
 
     void Start()
