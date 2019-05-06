@@ -720,6 +720,11 @@ PrefabInstance:
       propertyPath: otherPlayer
       value: 
       objectReference: {fileID: 1153069445}
+    - target: {fileID: 9187080482305129047, guid: 1d7bd96b5d485ce4e9c6218c31381ac0,
+        type: 3}
+      propertyPath: healthBar
+      value: 
+      objectReference: {fileID: 871406846}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1d7bd96b5d485ce4e9c6218c31381ac0, type: 3}
 --- !u!4 &451354090 stripped
