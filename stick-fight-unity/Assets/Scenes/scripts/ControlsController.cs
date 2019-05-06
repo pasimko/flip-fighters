@@ -121,9 +121,11 @@ public class ControlsController : MonoBehaviour
             {
                 if (Input.GetKey(pInput))
                 {
+                    Debug.Log("input recieved");
                     PlayerInput = pInput;
                     if (PlayerInput != KeyCode.Mouse0)
                     {
+                        Debug.Log("input is not mouse");
                         F1string = PlayerInput.ToString();
                         F1text.text = F1string;
                         Debug.Log(pInput);
@@ -303,6 +305,7 @@ public class ControlsController : MonoBehaviour
 
     void ToggleChange(Toggle change, Toggle[] alltoggles)
     {
+        Debug.Log("toggle was toggled");
         for (int i = 0; i < alltoggles.Length; i++)
         {
             if (alltoggles[i] != change)
