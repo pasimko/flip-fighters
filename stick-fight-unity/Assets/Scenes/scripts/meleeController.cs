@@ -4,8 +4,14 @@ using UnityEngine;
 
 public class meleeController : MonoBehaviour
 {
+
+    //Attached to invisible rectangular hitbox
+    //Hitbox despawns after 0.2s with no collisions
     float timer = 0.2f;
+    //We will ignore this gameObject's collisions
     public GameObject owner;
+
+    //Multipliers for damage and knockback from flips
     public float damageMult = 1;
     public float knockbackMult = 1;
     bool hasCollided = false;

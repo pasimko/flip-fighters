@@ -14,8 +14,8 @@ public class PlayerController : MonoBehaviour
     // KeyCodes that when pressed will trigger this action
     public KeyCode right, left, jump, attack, block;
 
-    public bool isGrounded = false;
-    public bool isJumping = false;
+    private bool isGrounded = false;
+    private bool isJumping = false;
     public LayerMask groundLayer; // The map - Layer for checking collisions with any of the map
 
     //Flip counting
@@ -48,13 +48,11 @@ public class PlayerController : MonoBehaviour
         Physics2D.IgnoreCollision(rightLeg.GetComponent<BoxCollider2D>(), rightArm.GetComponent<BoxCollider2D>());
     }
 
-
-
     void Update()
     {
         //Are the toes on the ground?
         isGrounded = (Physics2D.OverlapCircle(leftToe.position, 0.2f, groundLayer) || Physics2D.OverlapCircle(rightToe.position, 0.2f, groundLayer));
-        //These functions are pretty important
+        //Don't take input or anything if the game is paused
         if (!paused)
         {
             meleeCount -= Time.deltaTime;
@@ -62,10 +60,10 @@ public class PlayerController : MonoBehaviour
             HandleMovement();
             //raiseArm();
 
+            //If the player's in the air, count the flips
             if (!isGrounded)
             {
                 CountFlips();
-                Debug.Log(numberFlips.ToString());
             }
             else
             {
@@ -77,6 +75,7 @@ public class PlayerController : MonoBehaviour
 
     void HandleMovement()
     {
+        //Forces added to head in order to control player movement
         if (Input.GetKeyDown(jump) && isJumping == false)
         {
             head.AddForce(new Vector2(0, 2500));
@@ -169,10 +168,24 @@ public class PlayerController : MonoBehaviour
                 tempMelee.knockbackMult = numberFlips+1;
 
                 if (otherPlayer.body.transform.position.x < body.transform.position.x) {
-                    leftArm.AddTorque(-120);
+                    if (otherPlayer.head.transform.position.y < body.transform.position.y)
+                    {
+                        leftLeg.AddTorque(-120);
+                    }
+                    else
+                    {
+                        leftArm.AddTorque(-120);
+                    }
                 }
                 else if (otherPlayer.body.transform.position.x > body.transform.position.x) {
-                    rightArm.AddTorque(120);
+                    if (otherPlayer.head.transform.position.y < body.transform.position.y)
+                    {
+                        rightLeg.AddTorque(120);
+                    }
+                    else
+                    {
+                        rightArm.AddTorque(120);
+                    }
                 }
             }
         }
