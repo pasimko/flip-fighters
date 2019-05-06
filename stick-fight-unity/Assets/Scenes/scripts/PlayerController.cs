@@ -60,7 +60,7 @@ public class PlayerController : MonoBehaviour
             meleeCount -= Time.deltaTime;
             standUp();
             HandleMovement();
-            raiseArm();
+            //raiseArm();
 
             if (!isGrounded)
             {

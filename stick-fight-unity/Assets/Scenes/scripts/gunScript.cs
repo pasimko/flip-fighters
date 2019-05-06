@@ -62,7 +62,7 @@ public class gunScript : MonoBehaviour
         gameObject.transform.SetParent(playerHand, true);
         gameObject.transform.localPosition = Vector3.zero;
         gameObject.transform.localRotation = Quaternion.identity;
-        gameObject.transform.localRotation = Quaternion.AngleAxis(90, Vector3.forward);
+        //gameObject.transform.localRotation = Quaternion.AngleAxis(90, Vector3.forward);
         //gameObject.transform.localEulerAngles.y=0;
         //gameObject.transform.localEulerAngles.z=0;
     }
