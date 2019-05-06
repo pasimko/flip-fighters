@@ -8,7 +8,7 @@ public class PauseScript : MonoBehaviour
 {
 
     public GameObject pauseMenu;
-
+    private GameObject controlsPanel;
 
 
     public bool paused = false;
@@ -16,32 +16,32 @@ public class PauseScript : MonoBehaviour
 
     void Start()
     {
+        controlsPanel = GameObject.Find("ControlsPanel");
         pauseMenu.SetActive(false);
+        controlsPanel.SetActive(false);
     }
 
-    /*(public void openMainMenu ()
+    public void openMainMenu ()
     {
         SceneManager.LoadScene("Menu");
     }
-   public void showControlPanel()
+
+    public void openControlsPanel()
     {
-        SceneManager.LoadScene("controls");
+        controlsPanel.SetActive(true);
+        pauseMenu.SetActive(false);
+        
     }
 
-    public void showSettingsPanel()
-    {
-        SceneManager.LoadScene("settings");
-    }
-
-    public void nextMap()
-    {
-        SceneManager.LoadScene("level1");
-    }*/
-   
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
+            if (controlsPanel.activeInHierarchy == true)
+            {
+                controlsPanel.SetActive(false);
+                pauseMenu.SetActive(true);
+            }
             if (paused == true)
             {
                 Time.timeScale = 1.0f;
@@ -55,6 +55,7 @@ public class PauseScript : MonoBehaviour
                 //Time.deltaTime = 0.0f;
                 pauseMenu.SetActive(true);
                 paused = true;
+                
             }
         }
     }
