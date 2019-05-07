@@ -736,7 +736,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.02495, y: 226.99}
+  m_AnchoredPosition: {x: 9, y: 226.99}
   m_SizeDelta: {x: 1920.1, y: 435.47}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1649658077
@@ -772,7 +772,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Stick Fight
+  m_Text: Flip Fighters
 --- !u!222 &1649658078
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -851,7 +851,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: The Game
+  m_Text: 'the game '
 --- !u!222 &1728513099
 CanvasRenderer:
   m_ObjectHideFlags: 0
