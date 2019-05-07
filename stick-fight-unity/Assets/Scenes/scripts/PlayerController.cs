@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+//using UnityEngine.CoreModule;
 
 public class PlayerController : MonoBehaviour
 {
@@ -38,6 +39,8 @@ public class PlayerController : MonoBehaviour
     public Image healthBar;
 
     public bool paused;
+
+    public Color playerColor; 
 
     void Start()
     {
@@ -170,20 +173,24 @@ public class PlayerController : MonoBehaviour
                 if (otherPlayer.body.transform.position.x < body.transform.position.x) {
                     if (otherPlayer.head.transform.position.y < body.transform.position.y)
                     {
+                        //leftLeg.GetComponent<leftLegTrail>().enabled = true;
                         leftLeg.AddTorque(-120);
                     }
                     else
                     {
+                        //leftArm.GetComponent<leftArmTrail>().enabled = true;
                         leftArm.AddTorque(-120);
                     }
                 }
                 else if (otherPlayer.body.transform.position.x > body.transform.position.x) {
                     if (otherPlayer.head.transform.position.y < body.transform.position.y)
                     {
+                        //rightLeg.GetComponent<rightLegTrail>().enabled = true;
                         rightLeg.AddTorque(120);
                     }
                     else
                     {
+                        //rightArm.GetComponent<rightArmTrail>().enabled = true;
                         rightArm.AddTorque(120);
                     }
                 }
