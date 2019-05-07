@@ -137,7 +137,7 @@ public class PlayerController : MonoBehaviour
     {
         if (isGrounded && hasGun && standCount <= 0) {
             float currentAngle = gunHand.transform.localEulerAngles.z;
-            Debug.Log(currentAngle);
+            //Debug.Log(currentAngle);
             if ((currentAngle < 120 && gunHand == rightArm)||(currentAngle < 220 && gunHand == leftArm)) {
                 float tempTorque = 90 - currentAngle;
                 if (Mathf.Abs(tempTorque) > 90)
