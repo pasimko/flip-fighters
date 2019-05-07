@@ -75,7 +75,7 @@ public class PlayerController : MonoBehaviour
                     Debug.Log(numberFlips.ToString());
                     Color textColor = new Color(Random.Range(75, 255), Random.Range(40, 100), Random.Range(70, 100), 100);
                     playerFlips.color = textColor;
-                    playerFlips.transform.localPosition = body.position;
+                   // playerFlips.transform.localPosition = body.position;
                     playerFlips.enabled = true;
                     playerFlips.text = (numberFlips - 1).ToString() + "X";
                 }
