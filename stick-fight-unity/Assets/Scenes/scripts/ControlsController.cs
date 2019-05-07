@@ -127,6 +127,19 @@ public class ControlsController : MonoBehaviour
                     {
                         Debug.Log("input is not mouse");
                         F1string = PlayerInput.ToString();
+                        if (F1string.Length <= 5 )
+                        {
+                            F1text.fontSize = 60;
+                        }
+                        else if (F1string.Length > 5 && F1string.Length <= 9)
+
+                        {
+                            F1text.fontSize = 40;
+                        }
+                        else
+                        {
+                            F1text.fontSize = 38;
+                        }
                         F1text.text = F1string;
                         Debug.Log(pInput);
                         ForwardPl1.isOn = false;
@@ -146,6 +159,19 @@ public class ControlsController : MonoBehaviour
                     if (PlayerInput != KeyCode.Mouse0)
                     {
                         B1string = PlayerInput.ToString();
+                        if (B1string.Length <= 5)
+                        {
+                            B1text.fontSize = 60;
+                        }
+                        else if (B1string.Length > 5 && B1string.Length <= 9)
+
+                        {
+                            B1text.fontSize = 40;
+                        }
+                        else
+                        {
+                            B1text.fontSize = 38;
+                        }
                         B1text.text = B1string;
                         Debug.Log(pInput);
                         BackPl1.isOn = false;
@@ -164,6 +190,19 @@ public class ControlsController : MonoBehaviour
                     if (PlayerInput != KeyCode.Mouse0)
                     {
                         J1string = PlayerInput.ToString();
+                        if (J1string.Length <= 5)
+                        {
+                            J1text.fontSize = 60;
+                        }
+                        else if (J1string.Length > 5 && J1string.Length <= 9)
+
+                        {
+                            J1text.fontSize = 40;
+                        }
+                        else
+                        {
+                            J1text.fontSize = 38;
+                        }
                         J1text.text = J1string;
                         Debug.Log(pInput);
                         JumpPl1.isOn = false;
@@ -182,6 +221,19 @@ public class ControlsController : MonoBehaviour
                     if (PlayerInput != KeyCode.Mouse0)
                     {
                         A1string = PlayerInput.ToString();
+                        if (A1string.Length <= 5)
+                        {
+                            A1text.fontSize = 60;
+                        }
+                        else if (A1string.Length > 5 && A1string.Length <= 9)
+
+                        {
+                            A1text.fontSize = 40;
+                        }
+                        else
+                        {
+                            A1text.fontSize = 38;
+                        }
                         A1text.text = A1string;
                         Debug.Log(pInput);
                         AttackPl1.isOn = false;
@@ -200,6 +252,19 @@ public class ControlsController : MonoBehaviour
                     if (PlayerInput != KeyCode.Mouse0)
                     {
                         BL1string = PlayerInput.ToString();
+                        if (BL1string.Length <= 5)
+                        {
+                            BL1text.fontSize = 60;
+                        }
+                        else if (BL1string.Length > 5 && BL1string.Length <= 9)
+
+                        {
+                            BL1text.fontSize = 40;
+                        }
+                        else
+                        {
+                            BL1text.fontSize = 38;
+                        }
                         BL1text.text = BL1string;
                         Debug.Log(pInput);
                         BlockPl1.isOn = false;
@@ -218,6 +283,19 @@ public class ControlsController : MonoBehaviour
                     if (PlayerInput != KeyCode.Mouse0)
                     {
                         F2string = PlayerInput.ToString();
+                        if (F2string.Length <= 5)
+                        {
+                            F2text.fontSize = 60;
+                        }
+                        else if (F2string.Length > 5 && F2string.Length <= 9)
+
+                        {
+                            F2text.fontSize = 40;
+                        }
+                        else
+                        {
+                            F2text.fontSize = 38;
+                        }
                         F2text.text = F2string;
                         Debug.Log(pInput);
                         ForwardPl2.isOn = false;
@@ -236,6 +314,19 @@ public class ControlsController : MonoBehaviour
                     if (PlayerInput != KeyCode.Mouse0)
                     {
                         B2string = PlayerInput.ToString();
+                        if (B2string.Length <= 5)
+                        {
+                            B2text.fontSize = 60;
+                        }
+                        else if (B2string.Length > 5 && B2string.Length <= 9)
+
+                        {
+                            B2text.fontSize = 40;
+                        }
+                        else
+                        {
+                           B2text.fontSize = 38;
+                        }
                         B2text.text = B2string;
                         Debug.Log(pInput);
                         BackPl2.isOn = false;
@@ -254,6 +345,19 @@ public class ControlsController : MonoBehaviour
                     if (PlayerInput != KeyCode.Mouse0)
                     {
                         J2string = PlayerInput.ToString();
+                        if (J2string.Length <= 5)
+                        {
+                            J2text.fontSize = 60;
+                        }
+                        else if (J2string.Length > 5 && J2string.Length <= 9)
+
+                        {
+                            F2text.fontSize = 40;
+                        }
+                        else
+                        {
+                            J2text.fontSize = 38;
+                        }
                         J2text.text = J2string;
                         Debug.Log(pInput);
                         JumpPl2.isOn = false;
@@ -272,6 +376,19 @@ public class ControlsController : MonoBehaviour
                     if (PlayerInput != KeyCode.Mouse0)
                     {
                         A2string = PlayerInput.ToString();
+                        if (A2string.Length <= 5)
+                        {
+                            A2text.fontSize = 60;
+                        }
+                        else if (A2string.Length > 5 && A2string.Length <= 9)
+
+                        {
+                            A2text.fontSize = 40;
+                        }
+                        else
+                        {
+                            A2text.fontSize = 38;
+                        }
                         A2text.text = A2string;
                         Debug.Log(pInput);
                         AttackPl2.isOn = false;
@@ -290,7 +407,20 @@ public class ControlsController : MonoBehaviour
                     if (PlayerInput != KeyCode.Mouse0)
                     {
                         BL2string = PlayerInput.ToString();
-                        BL2text.text = F2string;
+                        if (BL2string.Length <= 5)
+                        {
+                            BL2text.fontSize = 60;
+                        }
+                        else if (BL2string.Length > 5 && BL2string.Length <= 9)
+
+                        {
+                            BL2text.fontSize = 40;
+                        }
+                        else
+                        {
+                            BL2text.fontSize = 38;
+                        }
+                        BL2text.text = BL2string;
                         Debug.Log(pInput);
                         BlockPl2.isOn = false;
                         Pl2BlockInput = PlayerInput;
