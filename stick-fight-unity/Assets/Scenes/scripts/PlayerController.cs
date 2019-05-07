@@ -36,6 +36,7 @@ public class PlayerController : MonoBehaviour
 
     public float health = 100;
     public Image healthBar;
+    public Text playerFlips;
 
     public bool paused;
 
@@ -64,11 +65,26 @@ public class PlayerController : MonoBehaviour
 
             if (!isGrounded)
             {
-                CountFlips();
-                Debug.Log(numberFlips.ToString());
+                   CountFlips();
+                if (numberFlips == 0)
+                {
+                    playerFlips.enabled = false;
+                }
+                else
+                {
+                    Debug.Log(numberFlips.ToString());
+                    Color textColor = new Color(Random.Range(75, 255), Random.Range(40, 100), Random.Range(70, 100), 100);
+                    playerFlips.color = textColor;
+                    playerFlips.transform.position = body.position;
+                    playerFlips.enabled = true;
+                    playerFlips.text = (numberFlips - 1).ToString() + "X";
+                }
+                   
+                
             }
             else
             {
+                playerFlips.enabled = false;
                 totalDegrees = 0;
             }
         }
