@@ -13570,6 +13570,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!199 &1145647327
 ParticleSystemRenderer:
   serializedVersion: 6
@@ -28243,7 +28253,7 @@ MonoBehaviour:
   currentGun: {fileID: 0}
   meleePrefab: {fileID: 7987507272095995194, guid: bcd212a8ff9594d45ac9ab66101bf66e,
     type: 3}
-  gunHand: {fileID: 0}
+  gunHand: {fileID: 102096516}
   health: 100
   healthBar: {fileID: 871406846}
   paused: 0

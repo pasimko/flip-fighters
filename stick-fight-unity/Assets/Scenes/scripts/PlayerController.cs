@@ -161,32 +161,40 @@ public class PlayerController : MonoBehaviour
         {
             if (meleeCount <= 0) {
                 meleeCount = 0.8f;
-                tempMelee = Instantiate(meleePrefab, head.position, body.transform.rotation).GetComponent<meleeController>();
-                tempMelee.owner = gameObject;
-
-                tempMelee.damageMult = numberFlips+1;
-                tempMelee.knockbackMult = numberFlips+1;
 
                 if (otherPlayer.body.transform.position.x < body.transform.position.x) {
                     if (otherPlayer.head.transform.position.y < body.transform.position.y)
                     {
                         leftLeg.AddTorque(-120);
+                        tempMelee = Instantiate(meleePrefab, leftLeg.position, body.transform.rotation).GetComponent<meleeController>();
+                        //Kicks do double knockback
+                        tempMelee.knockbackMult *= 2;
                     }
                     else
                     {
                         leftArm.AddTorque(-120);
+                        tempMelee = Instantiate(meleePrefab, leftArm.position, body.transform.rotation).GetComponent<meleeController>();
+                        tempMelee.knockbackMult = (numberFlips+1);
                     }
                 }
                 else if (otherPlayer.body.transform.position.x > body.transform.position.x) {
                     if (otherPlayer.head.transform.position.y < body.transform.position.y)
                     {
                         rightLeg.AddTorque(120);
+                        tempMelee = Instantiate(meleePrefab, rightLeg.position, body.transform.rotation).GetComponent<meleeController>();
+                        //Double knockback for kick
+                        tempMelee.knockbackMult *= 2;
                     }
                     else
                     {
+                        tempMelee = Instantiate(meleePrefab, rightArm.position, body.transform.rotation).GetComponent<meleeController>();
                         rightArm.AddTorque(120);
+                        tempMelee.knockbackMult = (numberFlips+1);
                     }
                 }
+                tempMelee.owner = gameObject;
+                tempMelee.knockbackMult += body.velocity.magnitude/10;
+                tempMelee.knockbackMult += Mathf.Abs(body.angularVelocity)/200f;
             }
         }
     }
