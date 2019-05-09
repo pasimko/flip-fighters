@@ -182,7 +182,7 @@ public class PlayerController : MonoBehaviour
                 meleeCount = 0.8f;
                 if (head.position.y > body.position.y)
                 {
-                    if (otherPlayer.body.transform.position.x < body.transform.position.x && head.position.y > body.position.y)
+                    if (otherPlayer.body.transform.position.x < body.transform.position.x)
                     {
                         if (otherPlayer.head.transform.position.y < body.transform.position.y)
                         {
@@ -216,6 +216,47 @@ public class PlayerController : MonoBehaviour
                             rightArm.AddTorque(120);
                             tempMelee.knockbackMult = (numberFlips + 1);
                             rightArm.GetComponentInChildren<ParticleSystem>().Play();
+                        }
+                    }
+                }
+                else
+                {
+                    if (otherPlayer.body.transform.position.x < body.transform.position.x)
+                    {
+                        if (otherPlayer.head.transform.position.y < body.transform.position.y)
+                        {
+                            rightArm.AddTorque(-120);
+                            tempMelee = Instantiate(meleePrefab, rightArm.position, body.transform.rotation).GetComponent<meleeController>();
+                            tempMelee.knockbackMult = (numberFlips + 1);
+                            rightArm.GetComponentInChildren<ParticleSystem>().Play();
+                        }
+                        else
+                        {
+                            leftArm.AddTorque(-120);
+                            tempMelee = Instantiate(meleePrefab, leftArm.position, body.transform.rotation).GetComponent<meleeController>();
+                            tempMelee.knockbackMult = (numberFlips + 1);
+                            leftArm.GetComponentInChildren<ParticleSystem>().Play();
+                        }
+                    }
+                    else if (otherPlayer.body.transform.position.x > body.transform.position.x)
+                    {
+                        if (otherPlayer.head.transform.position.y < body.transform.position.y)
+                        {
+                            leftLeg.AddTorque(120);
+                            tempMelee = Instantiate(meleePrefab, leftLeg.position, body.transform.rotation).GetComponent<meleeController>();
+                            //Double knockback for kick
+                            tempMelee.knockbackMult *= 2;
+                            leftLeg.GetComponentInChildren<ParticleSystem>().Play();
+                        }
+                        else
+                        {
+                            rightLeg.AddTorque(120);
+                            tempMelee = Instantiate(meleePrefab, rightLeg.position, body.transform.rotation).GetComponent<meleeController>();
+
+                            //Double knockback for kick
+                            tempMelee.knockbackMult *= 2;
+
+                            rightLeg.GetComponentInChildren<ParticleSystem>().Play();
                         }
                     }
                 }
