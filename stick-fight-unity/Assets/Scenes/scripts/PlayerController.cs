@@ -41,15 +41,34 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
+        disableParticles();
+        /*
+        head = transform.Find("head").GetComponent<Rigidbody2D>();
+        rightArm = transform.Find("rightArm").GetComponent<Rigidbody2D>();
+        leftArm = transform.Find("leftArm").GetComponent<Rigidbody2D>();
+        rightLeg = transform.Find("rightLeg").GetComponent<Rigidbody2D>();
+        leftLeg = transform.Find("leftLeg").GetComponent<Rigidbody2D>();
+        rightToe = rightLeg.transform.Find("rightToe");
+        leftToe = leftLeg.transform.Find("leftToe");
+        */
+
+
+
         lastPoint = transform.TransformDirection(Vector3.right);
         lastPoint.y = 0;
         // Body can get stuck in itself without this
         Physics2D.IgnoreCollision(leftLeg.GetComponent<BoxCollider2D>(), leftArm.GetComponent<BoxCollider2D>());
         Physics2D.IgnoreCollision(rightLeg.GetComponent<BoxCollider2D>(), rightArm.GetComponent<BoxCollider2D>());
+        Physics2D.IgnoreCollision(leftLeg.GetComponent<BoxCollider2D>(), body.GetComponent<BoxCollider2D>());
+        Physics2D.IgnoreCollision(rightLeg.GetComponent<BoxCollider2D>(), body.GetComponent<BoxCollider2D>());
     }
 
     void Update()
     {
+        if (meleeCount <= 0.7)
+        {
+            disableParticles();
+        }
         //Are the toes on the ground?
         isGrounded = (Physics2D.OverlapCircle(leftToe.position, 0.2f, groundLayer) || Physics2D.OverlapCircle(rightToe.position, 0.2f, groundLayer));
         //Don't take input or anything if the game is paused
@@ -161,35 +180,43 @@ public class PlayerController : MonoBehaviour
         {
             if (meleeCount <= 0) {
                 meleeCount = 0.8f;
-
-                if (otherPlayer.body.transform.position.x < body.transform.position.x) {
-                    if (otherPlayer.head.transform.position.y < body.transform.position.y)
+                if (head.position.y > body.position.y)
+                {
+                    if (otherPlayer.body.transform.position.x < body.transform.position.x && head.position.y > body.position.y)
                     {
-                        leftLeg.AddTorque(-120);
-                        tempMelee = Instantiate(meleePrefab, leftLeg.position, body.transform.rotation).GetComponent<meleeController>();
-                        //Kicks do double knockback
-                        tempMelee.knockbackMult *= 2;
+                        if (otherPlayer.head.transform.position.y < body.transform.position.y)
+                        {
+                            leftLeg.AddTorque(-120);
+                            tempMelee = Instantiate(meleePrefab, leftLeg.position, body.transform.rotation).GetComponent<meleeController>();
+                            //Kicks do double knockback
+                            tempMelee.knockbackMult *= 2;
+                            leftLeg.GetComponentInChildren<ParticleSystem>().Play();
+                        }
+                        else
+                        {
+                            leftArm.AddTorque(-120);
+                            tempMelee = Instantiate(meleePrefab, leftArm.position, body.transform.rotation).GetComponent<meleeController>();
+                            tempMelee.knockbackMult = (numberFlips + 1);
+                            leftArm.GetComponentInChildren<ParticleSystem>().Play();
+                        }
                     }
-                    else
+                    else if (otherPlayer.body.transform.position.x > body.transform.position.x)
                     {
-                        leftArm.AddTorque(-120);
-                        tempMelee = Instantiate(meleePrefab, leftArm.position, body.transform.rotation).GetComponent<meleeController>();
-                        tempMelee.knockbackMult = (numberFlips+1);
-                    }
-                }
-                else if (otherPlayer.body.transform.position.x > body.transform.position.x) {
-                    if (otherPlayer.head.transform.position.y < body.transform.position.y)
-                    {
-                        rightLeg.AddTorque(120);
-                        tempMelee = Instantiate(meleePrefab, rightLeg.position, body.transform.rotation).GetComponent<meleeController>();
-                        //Double knockback for kick
-                        tempMelee.knockbackMult *= 2;
-                    }
-                    else
-                    {
-                        tempMelee = Instantiate(meleePrefab, rightArm.position, body.transform.rotation).GetComponent<meleeController>();
-                        rightArm.AddTorque(120);
-                        tempMelee.knockbackMult = (numberFlips+1);
+                        if (otherPlayer.head.transform.position.y < body.transform.position.y)
+                        {
+                            rightLeg.AddTorque(120);
+                            tempMelee = Instantiate(meleePrefab, rightLeg.position, body.transform.rotation).GetComponent<meleeController>();
+                            //Double knockback for kick
+                            tempMelee.knockbackMult *= 2;
+                            rightLeg.GetComponentInChildren<ParticleSystem>().Play();
+                        }
+                        else
+                        {
+                            tempMelee = Instantiate(meleePrefab, rightArm.position, body.transform.rotation).GetComponent<meleeController>();
+                            rightArm.AddTorque(120);
+                            tempMelee.knockbackMult = (numberFlips + 1);
+                            rightArm.GetComponentInChildren<ParticleSystem>().Play();
+                        }
                     }
                 }
                 tempMelee.owner = gameObject;
@@ -197,5 +224,12 @@ public class PlayerController : MonoBehaviour
                 tempMelee.knockbackMult += Mathf.Abs(body.angularVelocity)/200f;
             }
         }
+    }
+    void disableParticles()
+    {
+        leftLeg.GetComponentInChildren<ParticleSystem>().Stop();
+        rightLeg.GetComponentInChildren<ParticleSystem>().Stop();
+        leftArm.GetComponentInChildren<ParticleSystem>().Stop();
+        rightArm.GetComponentInChildren<ParticleSystem>().Stop();
     }
 }
