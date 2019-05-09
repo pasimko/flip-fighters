@@ -92,7 +92,7 @@ public class PlayerController : MonoBehaviour
                 {
                     headPos = head.position;
                     headScreenPos = Camera.main.WorldToScreenPoint(headPos);
-                    headScreenPos = new Vector3(headScreenPos.x, headScreenPos.y + 30);
+                    headScreenPos = new Vector2(headScreenPos.x, headScreenPos.y + 30);
                     playerFlips.GetComponent<Transform>().position = headScreenPos;
                     playerFlips.enabled = true;
                     playerFlips.text = numberFlips.ToString() + "X" + "!";
