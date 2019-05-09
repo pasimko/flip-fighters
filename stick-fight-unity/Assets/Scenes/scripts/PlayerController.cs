@@ -36,6 +36,14 @@ public class PlayerController : MonoBehaviour
 
     public float health = 100;
     public Image healthBar;
+    public Text playerFlips;
+
+    private Vector3 headPos;
+    private Vector2 headScreenPos;
+
+    public Camera camera;
+
+
 
     public bool paused;
 
@@ -63,6 +71,19 @@ public class PlayerController : MonoBehaviour
         Physics2D.IgnoreCollision(rightLeg.GetComponent<BoxCollider2D>(), body.GetComponent<BoxCollider2D>());
     }
 
+    public static Vector3 GetScreenPosition(Transform transform, Canvas canvas, Camera cam)
+    {
+        Vector3 pos;
+        float width = canvas.GetComponent<RectTransform>().sizeDelta.x;
+        float height = canvas.GetComponent<RectTransform>().sizeDelta.y;
+        float x = Camera.main.WorldToScreenPoint(transform.position).x / Screen.width;
+        float y = Camera.main.WorldToScreenPoint(transform.position).y / Screen.height;
+        pos = new Vector3(width * x - width / 2, y * height - height / 2);
+        return pos;
+    }
+
+
+
     void Update()
     {
         if (meleeCount <= 0.7)
@@ -82,10 +103,27 @@ public class PlayerController : MonoBehaviour
             //If the player's in the air, count the flips
             if (!isGrounded)
             {
-                CountFlips();
+                   CountFlips();
+                if (numberFlips == 0)
+                {
+                    playerFlips.enabled = false;
+                }
+                else
+                {
+                    headPos = head.position;
+                    headScreenPos = Camera.main.WorldToScreenPoint(headPos);
+                    headScreenPos = new Vector2(headScreenPos.x, headScreenPos.y + 30);
+                    playerFlips.GetComponent<Transform>().position = headScreenPos;
+                    playerFlips.enabled = true;
+                    playerFlips.text = numberFlips.ToString() + "X" + "!";
+                    
+                }
+                   
+                
             }
             else
             {
+                playerFlips.enabled = false;
                 totalDegrees = 0;
             }
         }
@@ -155,7 +193,7 @@ public class PlayerController : MonoBehaviour
     {
         if (isGrounded && hasGun && standCount <= 0) {
             float currentAngle = gunHand.transform.localEulerAngles.z;
-            Debug.Log(currentAngle);
+            //Debug.Log(currentAngle);
             if ((currentAngle < 120 && gunHand == rightArm)||(currentAngle < 220 && gunHand == leftArm)) {
                 float tempTorque = 90 - currentAngle;
                 if (Mathf.Abs(tempTorque) > 90)

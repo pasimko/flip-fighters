@@ -6,7 +6,6 @@ using UnityEngine.UI;
 
 public class PauseScript : MonoBehaviour
 {
-
     public GameObject pauseMenu;
     private GameObject controlsPanel;
 

@@ -479,6 +479,7 @@ MonoBehaviour:
   rightArm: {fileID: 7175784224770052772}
   rightToe: {fileID: 7877457358660580407}
   leftToe: {fileID: 7877457359912609710}
+  otherPlayer: {fileID: 0}
   right: 100
   left: 97
   jump: 119
@@ -489,6 +490,14 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 256
+  hasGun: 0
+  currentGun: {fileID: 0}
+  meleePrefab: {fileID: 0}
+  gunHand: {fileID: 0}
+  health: 100
+  healthBar: {fileID: 0}
+  playerFlips: {fileID: 0}
+  paused: 0
 --- !u!1 &7877457359912609711
 GameObject:
   m_ObjectHideFlags: 0
