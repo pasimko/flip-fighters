@@ -6152,7 +6152,7 @@ MonoBehaviour:
   m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 3a14ee144d584cc4e8053288b86c0983, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 0.8509804, g: 0, b: 0.38431373, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
@@ -6701,7 +6701,6 @@ GameObject:
   - component: {fileID: 1780584224}
   - component: {fileID: 1780584226}
   - component: {fileID: 1780584225}
-  - component: {fileID: 1780584227}
   m_Layer: 0
   m_Name: p1Flips
   m_TagString: Untagged
@@ -6740,7 +6739,7 @@ MonoBehaviour:
   m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 3a14ee144d584cc4e8053288b86c0983, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 0.8490566, g: 0, b: 0.38454577, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
@@ -6770,27 +6769,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1780584223}
   m_CullTransparentMesh: 0
---- !u!50 &1780584227
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1780584223}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!1 &1788155060
 GameObject:
   m_ObjectHideFlags: 0
