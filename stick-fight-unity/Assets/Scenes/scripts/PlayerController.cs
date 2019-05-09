@@ -37,7 +37,11 @@ public class PlayerController : MonoBehaviour
     public float health = 100;
     public Image healthBar;
     public Text playerFlips;
-    
+
+    private Vector3 headPos;
+    private Vector2 headScreenPos;
+
+    public Camera camera;
 
 
 
@@ -86,9 +90,12 @@ public class PlayerController : MonoBehaviour
                 }
                 else
                 {
-                    //Debug.Log(numberFlips.ToString());
+                    headPos = head.position;
+                    headScreenPos = Camera.main.WorldToScreenPoint(headPos);
+                    headScreenPos = new Vector3(headScreenPos.x, headScreenPos.y + 30);
+                    playerFlips.GetComponent<Transform>().position = headScreenPos;
                     playerFlips.enabled = true;
-                    playerFlips.text = (numberFlips - 1).ToString() + "X";
+                    playerFlips.text = numberFlips.ToString() + "X" + "!";
                     
                 }
                    
