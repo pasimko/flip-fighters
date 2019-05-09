@@ -37,6 +37,9 @@ public class PlayerController : MonoBehaviour
     public float health = 100;
     public Image healthBar;
     public Text playerFlips;
+    
+
+
 
     public bool paused;
 
@@ -47,6 +50,17 @@ public class PlayerController : MonoBehaviour
         // Body can get stuck in itself without this
         Physics2D.IgnoreCollision(leftLeg.GetComponent<BoxCollider2D>(), leftArm.GetComponent<BoxCollider2D>());
         Physics2D.IgnoreCollision(rightLeg.GetComponent<BoxCollider2D>(), rightArm.GetComponent<BoxCollider2D>());
+    }
+
+    public static Vector3 GetScreenPosition(Transform transform, Canvas canvas, Camera cam)
+    {
+        Vector3 pos;
+        float width = canvas.GetComponent<RectTransform>().sizeDelta.x;
+        float height = canvas.GetComponent<RectTransform>().sizeDelta.y;
+        float x = Camera.main.WorldToScreenPoint(transform.position).x / Screen.width;
+        float y = Camera.main.WorldToScreenPoint(transform.position).y / Screen.height;
+        pos = new Vector3(width * x - width / 2, y * height - height / 2);
+        return pos;
     }
 
 
@@ -72,12 +86,10 @@ public class PlayerController : MonoBehaviour
                 }
                 else
                 {
-                    Debug.Log(numberFlips.ToString());
-                    Color textColor = new Color(Random.Range(75, 255), Random.Range(40, 100), Random.Range(70, 100), 100);
-                    playerFlips.color = textColor;
-                   // playerFlips.transform.localPosition = body.position;
+                    //Debug.Log(numberFlips.ToString());
                     playerFlips.enabled = true;
                     playerFlips.text = (numberFlips - 1).ToString() + "X";
+                    
                 }
                    
                 
