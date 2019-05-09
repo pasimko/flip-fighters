@@ -245,7 +245,7 @@ public class PlayerController : MonoBehaviour
                             leftLeg.AddTorque(120);
                             tempMelee = Instantiate(meleePrefab, leftLeg.position, body.transform.rotation).GetComponent<meleeController>();
                             //Double knockback for kick
-                            tempMelee.knockbackMult *= 2;
+                            tempMelee.knockbackMult *= 2; 
                             leftLeg.GetComponentInChildren<ParticleSystem>().Play();
                         }
                         else
