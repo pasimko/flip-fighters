@@ -409,7 +409,7 @@ HingeJoint2D:
     m_MaximumMotorForce: 10000
   m_UseLimits: 1
   m_AngleLimits:
-    m_LowerAngle: -30
+    m_LowerAngle: 0
     m_UpperAngle: 135
 --- !u!61 &104396891
 BoxCollider2D:
@@ -35102,7 +35102,7 @@ HingeJoint2D:
   m_UseLimits: 1
   m_AngleLimits:
     m_LowerAngle: -135
-    m_UpperAngle: 30
+    m_UpperAngle: 0
 --- !u!61 &1732427461
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -46989,7 +46989,7 @@ HingeJoint2D:
   m_UseLimits: 1
   m_AngleLimits:
     m_LowerAngle: -135
-    m_UpperAngle: 30
+    m_UpperAngle: 0
 --- !u!61 &7877457358802525468
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -47106,7 +47106,7 @@ HingeJoint2D:
     m_MaximumMotorForce: 10000
   m_UseLimits: 1
   m_AngleLimits:
-    m_LowerAngle: -30
+    m_LowerAngle: 0
     m_UpperAngle: 135
 --- !u!4 &7877457359443480581
 Transform:
