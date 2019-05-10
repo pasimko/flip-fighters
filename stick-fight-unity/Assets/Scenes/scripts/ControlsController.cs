@@ -506,11 +506,26 @@ public class ControlsController : MonoBehaviour
         GlobalController.Instance.attack1 = PL1AttackInput;
         GlobalController.Instance.block1 = Pl1BlockInput;
         GlobalController.Instance.jump2 = Pl2JumpInput;
-        GlobalController.Instance.left2 = Pl2BackInput;
-        GlobalController.Instance.right2 = Pl2ForwardInput;
+        GlobalController.Instance.left2 = Pl2ForwardInput;
+        GlobalController.Instance.right2 = Pl2BackInput;
         GlobalController.Instance.attack2 = Pl2AttackInput;
         GlobalController.Instance.block2 = Pl2BlockInput;
 
+    }
+
+    public void OpeningControls()
+    {
+        public KeyCode Pl1ForwardInput = KeyCode.D;
+        public KeyCode Pl1BackInput = KeyCode.A;
+        public KeyCode Pl1JumpInput = KeyCode.W;
+        public KeyCode PL1AttackInput = KeyCode.Space;
+        public KeyCode Pl1BlockInput = KeyCode.B;
+
+        public KeyCode Pl2ForwardInput = KeyCode.LeftArrow;
+        public KeyCode Pl2BackInput = KeyCode.RightArrow;
+        public KeyCode Pl2JumpInput = KeyCode.UpArrow;
+        public KeyCode Pl2AttackInput = KeyCode.LeftShift;
+        public KeyCode Pl2BlockInput = KeyCode.LeftControl;
     }
 
 

@@ -53,7 +53,8 @@ public class PauseScript : MonoBehaviour
             {
                 controlsPanel.SetActive(false);
                 pauseMenu.SetActive(true);
-            } if (settingsPanel.activeInHierarchy == true)
+            }
+            if (settingsPanel.activeInHierarchy == true)
             {
                 settingsPanel.SetActive(false);
                 pauseMenu.SetActive(true);
@@ -67,6 +68,7 @@ public class PauseScript : MonoBehaviour
             }
             else
             {
+                Debug.Log("Pause Menu Opening");
                 Time.timeScale = 0.0f;
                 //Time.deltaTime = 0.0f;
                 pauseMenu.SetActive(true);
