@@ -58,7 +58,7 @@ public class gunScript : MonoBehaviour
         player.GetComponent<PlayerController>().hasGun = true;
         player.GetComponent<PlayerController>().currentGun = gameObject.GetComponent<gunScript>();
         Destroy(gameObject.GetComponent<Rigidbody2D>());
-        //Destroy(gameObject.GetComponent<BoxCollider2D>());
+        Destroy(gameObject.GetComponent<BoxCollider2D>());
         gameObject.transform.SetParent(playerHand, true);
         gameObject.transform.localPosition = Vector3.zero;
         gameObject.transform.localRotation = Quaternion.identity;
