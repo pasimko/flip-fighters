@@ -5,17 +5,17 @@ using UnityEngine.UI;
 
 public class ControlsController : MonoBehaviour
 {
-    KeyCode Pl1ForwardInput = KeyCode.D;
-    KeyCode Pl1BackInput = KeyCode.A;
-    KeyCode Pl1JumpInput = KeyCode.W;
-    KeyCode PL1AttackInput = KeyCode.Space;
-    KeyCode Pl1BlockInput = KeyCode.B;
+    public KeyCode Pl1ForwardInput;
+    public KeyCode Pl1BackInput;
+    public KeyCode Pl1JumpInput;
+    public KeyCode PL1AttackInput;
+    public KeyCode Pl1BlockInput;
 
-    KeyCode Pl2ForwardInput = KeyCode.RightArrow;
-    KeyCode Pl2BackInput = KeyCode.LeftArrow;
-    KeyCode Pl2JumpInput = KeyCode.UpArrow;
-    KeyCode Pl2AttackInput = KeyCode.RightControl;
-    KeyCode Pl2BlockInput = KeyCode.RightShift;
+    public KeyCode Pl2ForwardInput;
+    public KeyCode Pl2BackInput;
+    public KeyCode Pl2JumpInput;
+    public KeyCode Pl2AttackInput;
+    public KeyCode Pl2BlockInput;
     
 
     public Toggle ForwardPl1;
@@ -59,6 +59,40 @@ public class ControlsController : MonoBehaviour
         values = (int[])System.Enum.GetValues(typeof(KeyCode));
 
         Toggle[] AllToggles = new Toggle[10] { ForwardPl1, BackPl1, JumpPl1, AttackPl1, BlockPl1, ForwardPl2, BackPl2, JumpPl2, AttackPl2, BlockPl2 };
+
+        KeyCode Pl1ForwardInput = GlobalController.Instance.right1;
+        KeyCode Pl1BackInput = GlobalController.Instance.left1;
+        KeyCode Pl1JumpInput = GlobalController.Instance.jump1;
+        KeyCode PL1AttackInput = GlobalController.Instance.attack1;
+        KeyCode Pl1BlockInput = GlobalController.Instance.block1;
+
+        KeyCode Pl2ForwardInput = GlobalController.Instance.right2;
+        KeyCode Pl2BackInput = GlobalController.Instance.left2;
+        KeyCode Pl2JumpInput = GlobalController.Instance.jump2;
+        KeyCode Pl2AttackInput = GlobalController.Instance.attack2;
+        KeyCode Pl2BlockInput = GlobalController.Instance.block2;
+
+        KeyCode[] allInputs = new KeyCode[] { Pl1ForwardInput, Pl1BackInput, Pl1JumpInput, PL1AttackInput, Pl1BlockInput, Pl2ForwardInput, Pl2BackInput, Pl2JumpInput, Pl2AttackInput, Pl2BlockInput };
+        Text[] allText = new Text[] { F1text, B1text, J1text, A1text, BL1text, F2text, B2text, J2text, A2text, BL2text };
+
+        for (int i = 0; i < allInputs.Length; i++)
+        {
+            string theInput = allInputs[i].ToString();
+            if (theInput.Length <= 5)
+            {
+                allText[i].fontSize = 60;
+            }
+            else if (theInput.Length > 5 && theInput.Length <= 9)
+
+            {
+                allText[i].fontSize = 40;
+            }
+            else
+            {
+                allText[i].fontSize = 38;
+            }
+            allText[i].text = theInput; 
+        }
 
         ForwardPl1.onValueChanged.AddListener(delegate
         {
@@ -451,6 +485,21 @@ public class ControlsController : MonoBehaviour
         {
             change.image.color = Color.white;
         }
+    }
+
+    public void LeavingControls()
+    {
+        GlobalController.Instance.jump1 = Pl1JumpInput;
+        GlobalController.Instance.left1 = Pl1BackInput;
+        GlobalController.Instance.right1 = Pl1ForwardInput;
+        GlobalController.Instance.attack1 = PL1AttackInput;
+        GlobalController.Instance.block1 = Pl1BlockInput;
+        GlobalController.Instance.jump2 = Pl2JumpInput;
+        GlobalController.Instance.left2 = Pl2BackInput;
+        GlobalController.Instance.right2 = Pl2ForwardInput;
+        GlobalController.Instance.attack2 = Pl2AttackInput;
+        GlobalController.Instance.block2 = Pl2BlockInput;
+
     }
 
 

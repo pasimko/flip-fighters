@@ -301,6 +301,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player1Color: {r: 1, g: 1, b: 1, a: 1}
   player2Color: {r: 1, g: 1, b: 1, a: 1}
+  jump1: 119
+  left1: 97
+  right1: 100
+  attack1: 32
+  block1: 98
+  jump2: 273
+  left2: 276
+  right2: 275
+  attack2: 305
+  block2: 303
 --- !u!4 &584834962
 Transform:
   m_ObjectHideFlags: 0
