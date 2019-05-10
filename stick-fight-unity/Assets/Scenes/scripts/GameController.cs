@@ -12,7 +12,7 @@ public class GameController : MonoBehaviour
     public KeyCode p1jump, p1left, p1right, p1attack;
     public KeyCode p2jump, p2left, p2right, p2attack;
 
-    //string[] maps = ["level1", "japan", "islands", "mountain"];
+    string[] maps = { "level1", "japan", "islands", "mountain" };
 
 
     void Awake()
@@ -36,6 +36,7 @@ public class GameController : MonoBehaviour
         if (CheckForWin())
         {
             CheckForWin().GetComponent<PlayerController>().won = true;
+            StartCoroutine(LoadLevelAfterDelay(5, maps[Random.Range(0, maps.Length)]));
         }
     }
 
@@ -66,6 +67,15 @@ public class GameController : MonoBehaviour
         {
             return null;
         }
+    }
+    void Start()
+    {
+    }
+
+    IEnumerator LoadLevelAfterDelay(float delay, string level)
+    {
+        yield return new WaitForSeconds(delay);
+        SceneManager.LoadScene(sceneName: level);
     }
 
 }
