@@ -513,21 +513,6 @@ public class ControlsController : MonoBehaviour
 
     }
 
-    public void OpeningControls()
-    {
-        public KeyCode Pl1ForwardInput = KeyCode.D;
-        public KeyCode Pl1BackInput = KeyCode.A;
-        public KeyCode Pl1JumpInput = KeyCode.W;
-        public KeyCode PL1AttackInput = KeyCode.Space;
-        public KeyCode Pl1BlockInput = KeyCode.B;
-
-        public KeyCode Pl2ForwardInput = KeyCode.LeftArrow;
-        public KeyCode Pl2BackInput = KeyCode.RightArrow;
-        public KeyCode Pl2JumpInput = KeyCode.UpArrow;
-        public KeyCode Pl2AttackInput = KeyCode.LeftShift;
-        public KeyCode Pl2BlockInput = KeyCode.LeftControl;
-    }
-
 
 
 }
