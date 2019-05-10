@@ -9,12 +9,15 @@ public class PauseScript : MonoBehaviour
     public GameObject pauseMenu;
     private GameObject controlsPanel;
 
+    ControlsController Controls;
+    PlayerController Player;
 
     public bool paused = false;
 
 
     void Start()
     {
+        Controls = GetComponent<ControlsController>();
         controlsPanel = GameObject.Find("ControlsPanel");
         pauseMenu.SetActive(false);
         controlsPanel.SetActive(false);
