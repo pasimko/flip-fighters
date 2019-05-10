@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class PauseScript : MonoBehaviour
 {
     public GameObject pauseMenu;
+    private GameObject settingsPanel;
     private GameObject controlsPanel;
 
     ControlsController Controls;
@@ -19,13 +20,22 @@ public class PauseScript : MonoBehaviour
     {
         Controls = GetComponent<ControlsController>();
         controlsPanel = GameObject.Find("ControlsPanel");
+        settingsPanel = GameObject.Find("SettingsPanel");
         pauseMenu.SetActive(false);
         controlsPanel.SetActive(false);
+        settingsPanel.SetActive(false);
+        
     }
 
     public void openMainMenu ()
     {
         SceneManager.LoadScene("Menu");
+    }
+
+    public void openSettingsPanel()
+    {
+        settingsPanel.SetActive(true);
+        pauseMenu.SetActive(false);
     }
 
     public void openControlsPanel()
@@ -42,6 +52,10 @@ public class PauseScript : MonoBehaviour
             if (controlsPanel.activeInHierarchy == true)
             {
                 controlsPanel.SetActive(false);
+                pauseMenu.SetActive(true);
+            } if (settingsPanel.activeInHierarchy == true)
+            {
+                settingsPanel.SetActive(false);
                 pauseMenu.SetActive(true);
             }
             if (paused == true)
