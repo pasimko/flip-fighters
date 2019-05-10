@@ -26,9 +26,10 @@ public class gunScript : MonoBehaviour
     public void fire()
     {
         tempBullet = Instantiate(projectilePrefab, barrel.position, transform.rotation);
-        tempBullet.gameObject.GetComponent<Projectile>().owner = equippedBy;
+        
+        tempBullet.transform.Find("head/collider").GetComponent<Projectile>().owner = equippedBy;
         ignorePlayer(tempBullet);
-        Physics2D.IgnoreCollision(tempBullet.GetComponent<Collider2D>(), gameObject.GetComponent<Collider2D>());
+        Physics2D.IgnoreCollision(tempBullet.transform.parent.GetComponent<Collider2D>(), gameObject.GetComponent<Collider2D>());
     }
 
     void OnCollisionEnter2D(Collision2D collision) {
@@ -39,14 +40,14 @@ public class gunScript : MonoBehaviour
                 Transform playerHand = GameObject.Find("player1/rightArm/gunHolder").transform;
                 equipGun(ref playerHand, ref player1);
                 gameObject.transform.localScale = new Vector3(-1f, -1f, 1f);
-                ignorePlayer(gameObject);
+                ignorePlayer(transform.parent.gameObject);
             }
             else if (collision.collider.gameObject.layer == 11 && !player2.GetComponent<PlayerController>().hasGun) {
                 equippedBy = player2;
                 Transform playerHand = GameObject.Find("player2/leftArm/gunHolder").transform;
                 equipGun(ref playerHand, ref player2);
                 gameObject.transform.localScale = new Vector3(-1f, -1f, 1f);
-                ignorePlayer(gameObject);
+                ignorePlayer(transform.parent.gameObject);
             }
         }
     }

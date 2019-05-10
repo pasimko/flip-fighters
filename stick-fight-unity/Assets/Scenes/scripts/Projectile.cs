@@ -10,20 +10,29 @@ public class Projectile : MonoBehaviour
     public GameObject owner;
 
     void Start() {
+        gameObject.layer = owner.layer + 2;
+        gameObject.transform.parent.gameObject.layer = owner.layer + 2;
+        gameObject.transform.parent.parent.Find("body").gameObject.layer = owner.layer + 2;
+        gameObject.transform.parent.parent.Find("rightArm").gameObject.layer = owner.layer + 2;
+        gameObject.transform.parent.parent.Find("leftArm").gameObject.layer = owner.layer + 2;
+        gameObject.transform.parent.parent.Find("leftLeg").gameObject.layer = owner.layer + 2;
+        gameObject.transform.parent.parent.Find("rightLeg").gameObject.layer = owner.layer + 2;
         //Set the velocity based on the rotation of the bullet. 
         //Bullet is rotated based on the gun's rotation upon instantiation
-        gameObject.GetComponent<Rigidbody2D>().AddForce(transform.right * velocity * 100);
+        Debug.Log(transform.gameObject.name);
+        transform.parent.GetComponent<Rigidbody2D>().AddForce(transform.right * velocity * 100);
+
     }
 
     void Update() {
         //Destroy if it's off the map
         if (gameObject.transform.position.y < -20) {
-            Destroy(gameObject);
+            Destroy(transform.parent.parent.gameObject);
         }
     }
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        Destroy(gameObject);
+        Destroy(transform.parent.parent.gameObject);
     }
 }

@@ -172,7 +172,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 556b077de20e0d4448b17c19f236d7c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectilePrefab: {fileID: 1814298982964840913, guid: 0e0ffb8f862e2c16f85eb00b581fa431,
+  projectilePrefab: {fileID: 5876576267115330358, guid: 061c5fde69837ef7faeae7486cf25ac6,
     type: 3}
   rateOfFire: 0
   ammoCapacity: 0
