@@ -1041,6 +1041,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player1Color: {r: 1, g: 1, b: 1, a: 1}
   player2Color: {r: 1, g: 1, b: 1, a: 1}
+  jump1: 119
+  left1: 97
+  right1: 100
+  attack1: 32
+  block1: 98
+  jump2: 273
+  left2: 276
+  right2: 275
+  attack2: 305
+  block2: 303
 --- !u!4 &226380424
 Transform:
   m_ObjectHideFlags: 0
@@ -23122,6 +23132,7 @@ GameObject:
   - component: {fileID: 1145647325}
   - component: {fileID: 1145647328}
   - component: {fileID: 1145647327}
+  - component: {fileID: 1145647326}
   m_Layer: 10
   m_Name: trail
   m_TagString: Untagged
@@ -32932,6 +32943,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe190256548a0564a84bd81d9148ec95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Pl1ForwardInput: 100
+  Pl1BackInput: 97
+  Pl1JumpInput: 119
+  PL1AttackInput: 32
+  Pl1BlockInput: 98
+  Pl2ForwardInput: 276
+  Pl2BackInput: 275
+  Pl2JumpInput: 273
+  Pl2AttackInput: 304
+  Pl2BlockInput: 306
   ForwardPl1: {fileID: 1140220809}
   BackPl1: {fileID: 1822938841}
   JumpPl1: {fileID: 1098561877}
@@ -33432,6 +33453,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player1: {fileID: 7877457359703688974}
   player2: {fileID: 7877457358021050069}
+  p1jump: 0
+  p1left: 0
+  p1right: 0
+  p1attack: 0
+  p2jump: 0
+  p2left: 0
+  p2right: 0
+  p2attack: 0
 --- !u!114 &1346604915
 MonoBehaviour:
   m_ObjectHideFlags: 0
