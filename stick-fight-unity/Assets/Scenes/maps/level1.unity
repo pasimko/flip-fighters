@@ -33415,8 +33415,8 @@ MonoBehaviour:
   Pl2ForwardInput: 276
   Pl2BackInput: 275
   Pl2JumpInput: 273
-  Pl2AttackInput: 304
-  Pl2BlockInput: 306
+  Pl2AttackInput: 305
+  Pl2BlockInput: 303
   ForwardPl1: {fileID: 1140220809}
   BackPl1: {fileID: 1822938841}
   JumpPl1: {fileID: 1098561877}

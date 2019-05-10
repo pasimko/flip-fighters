@@ -54,7 +54,7 @@ public class ControlsController : MonoBehaviour
     private int[] values;
     private KeyCode PlayerInput;
 
-    void Awake()
+    void Start()
     {
         Debug.Log("Awake");
         values = (int[])System.Enum.GetValues(typeof(KeyCode));
