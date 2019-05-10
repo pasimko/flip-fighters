@@ -158,11 +158,27 @@ public class PlayerController : MonoBehaviour
         }
         if (Input.GetKeyDown(left))
         {
-            head.AddForce(new Vector2(-500, 0));
+            if (isGrounded) 
+            {
+                body.AddForce(new Vector2(-500, 0));
+                head.AddForce(new Vector2(0, 100));
+            }
+            else 
+            {
+                head.AddForce(new Vector2(-500, 0));
+            }
         }
         if (Input.GetKeyDown(right))
         {
-            head.AddForce(new Vector2(500, 0));
+            if (isGrounded) 
+            {
+                body.AddForce(new Vector2(500, 0));
+                head.AddForce(new Vector2(0, 100));
+            }
+            else 
+            {
+                head.AddForce(new Vector2(500, 0));
+            }
         }
         if (Input.GetKeyDown(attack))
         {
@@ -300,6 +316,7 @@ public class PlayerController : MonoBehaviour
                         {
                             leftLeg.AddTorque(120);
                             tempMelee = Instantiate(meleePrefab, leftLeg.position, body.transform.rotation).GetComponent<meleeController>();
+                            tempMelee.knockbackMult = (numberFlips + 1);
                             //Double knockback for kick
                             tempMelee.knockbackMult *= 2; 
                             leftLeg.GetComponentInChildren<ParticleSystem>().Play();
@@ -309,6 +326,7 @@ public class PlayerController : MonoBehaviour
                             rightLeg.AddTorque(120);
                             tempMelee = Instantiate(meleePrefab, rightLeg.position, body.transform.rotation).GetComponent<meleeController>();
 
+                            tempMelee.knockbackMult = (numberFlips + 1);
                             //Double knockback for kick
                             tempMelee.knockbackMult *= 2;
 
