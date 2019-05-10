@@ -6744,7 +6744,7 @@ GameObject:
   - component: {fileID: 483700452}
   - component: {fileID: 483700451}
   m_Layer: 0
-  m_Name: Player 2 Label
+  m_Name: Player 1 Label
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6766,8 +6766,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5805092}
-  m_AnchoredPosition: {x: -1539.75, y: -72.55719}
-  m_SizeDelta: {x: 200.5, y: 87.545334}
+  m_AnchoredPosition: {x: -1499.6, y: -78}
+  m_SizeDelta: {x: 280.9, y: 98.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &483700451
 MonoBehaviour:
@@ -6790,7 +6790,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 87b0080de9398b049acafb4fb7e5ea68, type: 3}
+    m_Font: {fileID: 12800000, guid: 08cbba093b0cc424286c16ecaba95dfb, type: 3}
     m_FontSize: 70
     m_FontStyle: 0
     m_BestFit: 0
@@ -6976,7 +6976,7 @@ GameObject:
   - component: {fileID: 503600263}
   - component: {fileID: 503600262}
   m_Layer: 0
-  m_Name: Player 1 Label
+  m_Name: Player 2 Label
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6998,8 +6998,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5805092}
-  m_AnchoredPosition: {x: 1533.7499, y: -72.55728}
-  m_SizeDelta: {x: 200.5, y: 87.545334}
+  m_AnchoredPosition: {x: 1481.6, y: -76.5}
+  m_SizeDelta: {x: 453.3, y: 116.33}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &503600262
 MonoBehaviour:
@@ -7022,7 +7022,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 87b0080de9398b049acafb4fb7e5ea68, type: 3}
+    m_Font: {fileID: 12800000, guid: 08cbba093b0cc424286c16ecaba95dfb, type: 3}
     m_FontSize: 70
     m_FontStyle: 0
     m_BestFit: 0
