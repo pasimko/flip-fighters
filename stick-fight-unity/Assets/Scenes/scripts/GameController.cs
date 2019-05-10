@@ -12,6 +12,8 @@ public class GameController : MonoBehaviour
     public KeyCode p1jump, p1left, p1right, p1attack;
     public KeyCode p2jump, p2left, p2right, p2attack;
 
+    //string[] maps = ["level1", "japan", "islands", "mountain"];
+
 
     void Awake()
     {
@@ -21,15 +23,20 @@ public class GameController : MonoBehaviour
         Physics2D.IgnoreLayerCollision(12, 12, true);
         Physics2D.IgnoreLayerCollision(13, 13, true);
     }
-    void newMap()
+    void newMap(string level)
     {
-        SceneManager.LoadScene(sceneName: "level1");
+        SceneManager.LoadScene(sceneName: level);
         UpdateControls();
     }
     private void Update()
     {
         player1.GetComponent<PlayerController>().paused = gameObject.GetComponent<PauseScript>().paused;
         player2.GetComponent<PlayerController>().paused = gameObject.GetComponent<PauseScript>().paused;
+
+        if (CheckForWin())
+        {
+            CheckForWin().GetComponent<PlayerController>().won = true;
+        }
     }
 
     public void UpdateControls()
@@ -43,6 +50,22 @@ public class GameController : MonoBehaviour
         player2.GetComponent<PlayerController>().right = p2right;
         player2.GetComponent<PlayerController>().left = p2left;
         player2.GetComponent<PlayerController>().attack = p2attack;
+    }
+
+    Transform CheckForWin()
+    {
+        if (player1.GetComponent<PlayerController>().head.position.y < -15 || player1.GetComponent<PlayerController>().health <= 0)
+        {
+            return player2;
+        }
+        else if (player2.GetComponent<PlayerController>().head.position.y < -15 || player2.GetComponent<PlayerController>().health <= 0)
+        {
+            return player1;
+        }
+        else
+        {
+            return null;
+        }
     }
 
 }

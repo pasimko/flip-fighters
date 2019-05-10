@@ -48,22 +48,12 @@ public class PlayerController : MonoBehaviour
 
     public bool paused;
 
+    public bool won = false;
+
     void Start()
     {
         pullControls();
-
         disableParticles();
-        /*
-        head = transform.Find("head").GetComponent<Rigidbody2D>();
-        rightArm = transform.Find("rightArm").GetComponent<Rigidbody2D>();
-        leftArm = transform.Find("leftArm").GetComponent<Rigidbody2D>();
-        rightLeg = transform.Find("rightLeg").GetComponent<Rigidbody2D>();
-        leftLeg = transform.Find("leftLeg").GetComponent<Rigidbody2D>();
-        rightToe = rightLeg.transform.Find("rightToe");
-        leftToe = leftLeg.transform.Find("leftToe");
-        */
-
-
 
         lastPoint = transform.TransformDirection(Vector3.right);
         lastPoint.y = 0;
@@ -85,13 +75,24 @@ public class PlayerController : MonoBehaviour
         return pos;
     }
 
-
-
     void Update()
     {
-        if (meleeCount <= 0.7)
+        if (meleeCount <= 0.7 && !won)
         {
             disableParticles();
+        }
+        else if (won)
+        {
+            enableParticles();
+        }
+        if (otherPlayer.won)
+        {
+            Destroy(head.GetComponent<HingeJoint2D>());
+            Destroy(rightArm.GetComponent<HingeJoint2D>());
+            Destroy(leftArm.GetComponent<HingeJoint2D>());
+            Destroy(rightLeg.GetComponent<HingeJoint2D>());
+            Destroy(leftLeg.GetComponent<HingeJoint2D>());
+            Destroy(this);
         }
         //Are the toes on the ground?
         isGrounded = (Physics2D.OverlapCircle(leftToe.position, 0.2f, groundLayer) || Physics2D.OverlapCircle(rightToe.position, 0.2f, groundLayer));
@@ -339,6 +340,13 @@ public class PlayerController : MonoBehaviour
         rightLeg.GetComponentInChildren<ParticleSystem>().Stop();
         leftArm.GetComponentInChildren<ParticleSystem>().Stop();
         rightArm.GetComponentInChildren<ParticleSystem>().Stop();
+    }
+    public void enableParticles()
+    {
+        leftLeg.GetComponentInChildren<ParticleSystem>().Play();
+        rightLeg.GetComponentInChildren<ParticleSystem>().Play();
+        leftArm.GetComponentInChildren<ParticleSystem>().Play();
+        rightArm.GetComponentInChildren<ParticleSystem>().Play();
     }
     public void pullControls()
     {

@@ -48356,6 +48356,7 @@ MonoBehaviour:
   rightleg2: {fileID: 0}
   leftleg2: {fileID: 0}
   paused: 0
+  won: 0
 --- !u!114 &9187080481863083966
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -48407,3 +48408,4 @@ MonoBehaviour:
   rightleg2: {fileID: 7175784223769442241}
   leftleg2: {fileID: 7175784225324588131}
   paused: 0
+  won: 0
