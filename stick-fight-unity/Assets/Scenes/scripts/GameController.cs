@@ -16,6 +16,10 @@ public class GameController : MonoBehaviour
     void Awake()
     {
         Time.timeScale = 1.0f;
+        Physics2D.IgnoreLayerCollision(12, 10, true);
+        Physics2D.IgnoreLayerCollision(13, 11, true);
+        Physics2D.IgnoreLayerCollision(12, 12, true);
+        Physics2D.IgnoreLayerCollision(13, 13, true);
     }
     void newMap()
     {
