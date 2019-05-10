@@ -46,6 +46,7 @@ public class PlayerColorController : MonoBehaviour
             PL1color = Color.white;
         }
         PL1ColorButton.image.color = PL1color;
+        GlobalController.Instance.player1Color = PL1color;
     }
 
     public void PL2ColorChange()
@@ -71,6 +72,7 @@ public class PlayerColorController : MonoBehaviour
             PL2color = Color.white;
         }
         PL2ColorButton.image.color = PL2color;
+        GlobalController.Instance.player2Color = PL2color;
     }
 
     public void LeavingSettings()

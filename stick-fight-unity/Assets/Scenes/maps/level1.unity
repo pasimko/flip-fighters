@@ -122,6 +122,7 @@ GameObject:
   m_Component:
   - component: {fileID: 87876231}
   - component: {fileID: 87876230}
+  - component: {fileID: 87876232}
   m_Layer: 0
   m_Name: PlayerColorController
   m_TagString: Untagged
@@ -160,13 +161,29 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 87876229}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 650.80884, y: 169.59933, z: -6.0125}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 413.13516, y: -60.97723, z: -12.685717}
+  m_LocalScale: {x: 2.1098902, y: 2.1098902, z: 2.1098902}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_Father: {fileID: 976667536}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &87876232
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 87876229}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 996b9eae026b6d443ac53c5017fdf413, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PL1color: {r: 1, g: 1, b: 1, a: 1}
+  PL2color: {r: 1, g: 1, b: 1, a: 1}
+  PL1ColorButton: {fileID: 304439249}
+  PL2ColorButton: {fileID: 715562163}
 --- !u!1 &99781567
 GameObject:
   m_ObjectHideFlags: 0
@@ -6127,7 +6144,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 87876232}
         m_MethodName: PL1ColorChange
         m_Mode: 1
         m_Arguments:
@@ -12354,7 +12371,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 87876232}
         m_MethodName: PL2ColorChange
         m_Mode: 1
         m_Arguments:
@@ -13433,6 +13450,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 2109040804}
+  - {fileID: 87876231}
   m_Father: {fileID: 1210101474}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -48325,6 +48343,18 @@ MonoBehaviour:
   healthBar: {fileID: 345623829}
   playerFlips: {fileID: 1705739134}
   camera: {fileID: 1584890057}
+  head1: {fileID: 0}
+  body1: {fileID: 0}
+  rightarm1: {fileID: 0}
+  leftarm1: {fileID: 0}
+  rightleg1: {fileID: 0}
+  leftleg1: {fileID: 0}
+  head2: {fileID: 0}
+  body2: {fileID: 0}
+  rightarm2: {fileID: 0}
+  leftarm2: {fileID: 0}
+  rightleg2: {fileID: 0}
+  leftleg2: {fileID: 0}
   paused: 0
 --- !u!114 &9187080481863083966
 MonoBehaviour:
@@ -48364,4 +48394,16 @@ MonoBehaviour:
   healthBar: {fileID: 871406846}
   playerFlips: {fileID: 1780584225}
   camera: {fileID: 1584890057}
+  head1: {fileID: 951414785}
+  body1: {fileID: 2022312979}
+  rightarm1: {fileID: 102096512}
+  leftarm1: {fileID: 1544938474}
+  rightleg1: {fileID: 1732427458}
+  leftleg1: {fileID: 104396888}
+  head2: {fileID: 7877457358749851625}
+  body2: {fileID: 7310599843103881072}
+  rightarm2: {fileID: 3113891207006414326}
+  leftarm2: {fileID: 7175784225513402508}
+  rightleg2: {fileID: 7175784223769442241}
+  leftleg2: {fileID: 7175784225324588131}
   paused: 0

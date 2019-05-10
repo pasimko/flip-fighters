@@ -7,7 +7,7 @@ public class InGameColor : MonoBehaviour
     public GameObject head1, body1, rightarm1, leftarm1, rightleg1, leftleg1;
     public GameObject head2, body2, rightarm2, leftarm2, rightleg2, leftleg2;
 
-    void Start()
+     public void Start()
     {
         GameObject[] player1 = new GameObject[] { head1, body1, rightarm1, leftarm1, rightleg1, leftleg1 };
         GameObject[] player2 = new GameObject[] { head2, body2, rightarm2, leftarm2, rightleg2, leftleg2 };
