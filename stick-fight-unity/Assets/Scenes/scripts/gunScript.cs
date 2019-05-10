@@ -26,7 +26,8 @@ public class gunScript : MonoBehaviour
     public void fire()
     {
         tempBullet = Instantiate(projectilePrefab, barrel.position, transform.rotation);
-        tempBullet.gameObject.GetComponent<Projectile>().owner = equippedBy;
+        
+        tempBullet.transform.Find("head/collider").GetComponent<Projectile>().owner = equippedBy;
         ignorePlayer(tempBullet);
         Physics2D.IgnoreCollision(tempBullet.transform.parent.GetComponent<Collider2D>(), gameObject.GetComponent<Collider2D>());
     }
