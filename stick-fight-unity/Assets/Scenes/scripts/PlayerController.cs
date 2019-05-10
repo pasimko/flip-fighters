@@ -49,23 +49,7 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
-        
-        if (gameObject.name == "player1")
-        {
-            right = GlobalController.Instance.right1;
-            left = GlobalController.Instance.left1;
-            jump = GlobalController.Instance.jump1;
-            attack = GlobalController.Instance.attack1;
-            block = GlobalController.Instance.block1;
-        }
-        else if (gameObject.name == "player2")
-        {
-            right = GlobalController.Instance.right2;
-            left = GlobalController.Instance.left2;
-            jump = GlobalController.Instance.jump2;
-            attack = GlobalController.Instance.attack2;
-            block = GlobalController.Instance.block2;
-        }
+        pullControls();
 
         disableParticles();
         /*
@@ -143,6 +127,13 @@ public class PlayerController : MonoBehaviour
             {
                 playerFlips.enabled = false;
                 totalDegrees = 0;
+            }
+        }
+        else
+        {
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                pullControls();
             }
         }
         healthBar.fillAmount = health/100;     
@@ -346,5 +337,25 @@ public class PlayerController : MonoBehaviour
         rightLeg.GetComponentInChildren<ParticleSystem>().Stop();
         leftArm.GetComponentInChildren<ParticleSystem>().Stop();
         rightArm.GetComponentInChildren<ParticleSystem>().Stop();
+    }
+    public void pullControls()
+    {
+        Debug.Log("Pulling Controls");
+        if (gameObject.name == "player1")
+        {
+            right = GlobalController.Instance.right1;
+            left = GlobalController.Instance.left1;
+            jump = GlobalController.Instance.jump1;
+            attack = GlobalController.Instance.attack1;
+            block = GlobalController.Instance.block1;
+        }
+        else if (gameObject.name == "player2")
+        {
+            right = GlobalController.Instance.right2;
+            left = GlobalController.Instance.left2;
+            jump = GlobalController.Instance.jump2;
+            attack = GlobalController.Instance.attack2;
+            block = GlobalController.Instance.block2;
+        }
     }
 }
