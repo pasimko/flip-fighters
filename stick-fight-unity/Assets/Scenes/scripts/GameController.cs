@@ -23,7 +23,7 @@ public class GameController : MonoBehaviour
 
     void Awake()
     {
-        //These layers are for 
+        //These layers are for the players and the projectile sthey launched
         Time.timeScale = 1.0f;
         Physics2D.IgnoreLayerCollision(12, 10, true);
         Physics2D.IgnoreLayerCollision(13, 11, true);

@@ -15,11 +15,29 @@ public class gunScript : MonoBehaviour
     public GameObject equippedBy;
     bool equipped = false;
 
+    float timer = 8.0f;
+
     GameObject tempBullet;
 
-    void Start() {
+    void Start() 
+    {
         player1 = GameObject.Find("player1");
         player2 = GameObject.Find("player2");
+    }
+    void Update() 
+    {
+        timer -= Time.deltaTime;
+        if (timer <= 0) {
+            
+            equippedBy.GetComponent<PlayerController>().hasGun = false;
+            equippedBy.GetComponent<PlayerController>().currentGun = null;
+            gameObject.transform.parent = null;
+            Destroy(gameObject.GetComponent<CircleCollider2D>());
+            gameObject.AddComponent<Rigidbody2D>();
+            gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector3(Random.Range(-20, 20), Random.Range(-20, 20), 0));
+            gameObject.GetComponent<Rigidbody2D>().AddTorque(Random.Range(-20, 20));
+            Destroy(this);
+        }
     }
 
     public void fire()
@@ -70,6 +88,7 @@ public class gunScript : MonoBehaviour
 
         //We don't want the orb physically interacting with the map anymore
         Destroy(gameObject.GetComponent<Rigidbody2D>());
+
         Destroy(gameObject.GetComponent<BoxCollider2D>());
 
         //Setting parent can mess up position and rotation, so we reset
