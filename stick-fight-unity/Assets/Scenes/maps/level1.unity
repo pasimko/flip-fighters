@@ -33851,6 +33851,7 @@ MonoBehaviour:
   p2left: 0
   p2right: 0
   p2attack: 0
+  secret: {fileID: 932693034822756574, guid: beafa729af3af3d9db8eee3e6a3df34a, type: 3}
 --- !u!114 &1346604915
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -13,15 +13,27 @@ public class GameController : MonoBehaviour
     public KeyCode p2jump, p2left, p2right, p2attack;
 
     string[] maps = { "level1", "japan", "islands", "mountain" };
+    
+    //Cheat code variables
+    private string[] cheatCode;
+    private int index;
+
+    public GameObject secret;
 
 
     void Awake()
     {
+        //These layers are for 
         Time.timeScale = 1.0f;
         Physics2D.IgnoreLayerCollision(12, 10, true);
         Physics2D.IgnoreLayerCollision(13, 11, true);
         Physics2D.IgnoreLayerCollision(12, 12, true);
         Physics2D.IgnoreLayerCollision(13, 13, true);
+    }
+    void Start() {
+        // Code is "stick", player needs to input this in the right order
+        cheatCode = new string[] { "s", "t", "i", "c", "k" };
+        index = 0;    
     }
     void newMap(string level)
     {
@@ -37,6 +49,25 @@ public class GameController : MonoBehaviour
         {
             CheckForWin().GetComponent<PlayerController>().won = true;
             StartCoroutine(LoadLevelAfterDelay(5, maps[Random.Range(0, maps.Length)]));
+        }
+        // Check if any key is pressed
+        if (Input.anyKeyDown) {
+            // Check if the next key in the code is pressed
+            if (Input.GetKeyDown(cheatCode[index])) {
+                // Add 1 to index to check the next key in the code
+                index++;
+            }
+            // Wrong key entered, we reset code typing
+            else {
+                index = 0;    
+            }
+        }
+        
+        // If index reaches the length of the cheatCode string, 
+        // the entire code was correctly entered
+        if (index == cheatCode.Length) {
+            Instantiate(secret);
+            index = 0;
         }
     }
 
@@ -68,14 +99,10 @@ public class GameController : MonoBehaviour
             return null;
         }
     }
-    void Start()
-    {
-    }
 
     IEnumerator LoadLevelAfterDelay(float delay, string level)
     {
         yield return new WaitForSeconds(delay);
         SceneManager.LoadScene(sceneName: level);
     }
-
 }

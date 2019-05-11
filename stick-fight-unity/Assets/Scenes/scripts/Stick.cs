@@ -35,7 +35,7 @@ public class Stick : MonoBehaviour
             }
         }
         else if (collision.collider.gameObject.layer == equippedBy.GetComponent<PlayerController>().otherPlayer.gameObject.layer) {
-            equippedBy.GetComponent<PlayerController>().otherPlayer.head.AddForce(Vector3.right*10000);
+            equippedBy.GetComponent<PlayerController>().otherPlayer.head.AddForce(transform.right*10000);
         }
     }
     

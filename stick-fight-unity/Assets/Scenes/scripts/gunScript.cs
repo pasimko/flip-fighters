@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class gunScript : MonoBehaviour
 {
-
     public GameObject projectilePrefab;
     public int rateOfFire, ammoCapacity;
     public Vector3 direction;
@@ -45,7 +44,7 @@ public class gunScript : MonoBehaviour
                 equippedBy = player1;
                 Transform playerHand = GameObject.Find("player1/rightArm/gunHolder").transform;
                 equipGun(ref playerHand, ref player1);
-                
+
                 //Change scale in order to maintain scaling before it was childed
                 gameObject.transform.localScale = new Vector3(-3f, 3f, 1f);
                 ignorePlayer(transform.parent.gameObject);
