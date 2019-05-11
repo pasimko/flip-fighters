@@ -15,7 +15,7 @@ public class gunScript : MonoBehaviour
     public GameObject equippedBy;
     bool equipped = false;
 
-    float timer = 8.0f;
+    float timer = 10.0f;
 
     GameObject tempBullet;
 

@@ -50,6 +50,10 @@ public class PlayerController : MonoBehaviour
 
     public bool won = false;
 
+    void Awake() {
+        disableParticles();
+    }
+
     void Start()
     {
         pullControls();
