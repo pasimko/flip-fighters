@@ -26,17 +26,19 @@ public class gunScript : MonoBehaviour
     }
     void Update() 
     {
-        timer -= Time.deltaTime;
-        if (timer <= 0) {
-            
-            equippedBy.GetComponent<PlayerController>().hasGun = false;
-            equippedBy.GetComponent<PlayerController>().currentGun = null;
-            gameObject.transform.parent = null;
-            Destroy(gameObject.GetComponent<CircleCollider2D>());
-            gameObject.AddComponent<Rigidbody2D>();
-            gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector3(Random.Range(-20, 20), Random.Range(-20, 20), 0));
-            gameObject.GetComponent<Rigidbody2D>().AddTorque(Random.Range(-20, 20));
-            Destroy(this);
+        if (equipped) {
+            timer -= Time.deltaTime;
+            if (timer <= 0) {
+                
+                equippedBy.GetComponent<PlayerController>().hasGun = false;
+                equippedBy.GetComponent<PlayerController>().currentGun = null;
+                gameObject.transform.parent = null;
+                Destroy(gameObject.GetComponent<CircleCollider2D>());
+                gameObject.AddComponent<Rigidbody2D>();
+                gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector3(Random.Range(-20, 20), Random.Range(-20, 20), 0));
+                gameObject.GetComponent<Rigidbody2D>().AddTorque(Random.Range(-20, 20));
+                Destroy(this);
+            }
         }
     }
 
