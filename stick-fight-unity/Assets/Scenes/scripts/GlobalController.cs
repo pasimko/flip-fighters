@@ -15,7 +15,6 @@ public class GlobalController : MonoBehaviour
     public KeyCode jump1, left1, right1, attack1, block1;
     public KeyCode jump2, left2, right2;
     public KeyCode attack2 = KeyCode.RightControl;
-    public KeyCode block2 = KeyCode.RightShift;
 
     bool fightingScene;
 

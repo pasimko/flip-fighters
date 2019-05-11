@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour
     public PlayerController otherPlayer;
 
     // KeyCodes that when pressed will trigger this action
-    public KeyCode right, left, jump, attack, block;
+    public KeyCode right, left, jump, attack;
 
     private bool isGrounded = false;
     private bool isJumping = false;
@@ -383,7 +383,6 @@ public class PlayerController : MonoBehaviour
             left = GlobalController.Instance.left1;
             jump = GlobalController.Instance.jump1;
             attack = GlobalController.Instance.attack1;
-            block = GlobalController.Instance.block1;
         }
         else if (gameObject.name == "player2")
         {
@@ -391,7 +390,6 @@ public class PlayerController : MonoBehaviour
             left = GlobalController.Instance.left2;
             jump = GlobalController.Instance.jump2;
             attack = GlobalController.Instance.attack2;
-            block = GlobalController.Instance.block2;
         }
     }
     void changeColor()

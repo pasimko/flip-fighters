@@ -9,47 +9,47 @@ public class ControlsController : MonoBehaviour
     public KeyCode Pl1BackInput = KeyCode.A;
     public KeyCode Pl1JumpInput = KeyCode.W;
     public KeyCode PL1AttackInput = KeyCode.Space;
-    public KeyCode Pl1BlockInput = KeyCode.B;
 
-    public KeyCode Pl2ForwardInput = KeyCode.LeftArrow;
-    public KeyCode Pl2BackInput = KeyCode.RightArrow;
+
+    public KeyCode Pl2ForwardInput = KeyCode.RightArrow;
+    public KeyCode Pl2BackInput = KeyCode.LeftArrow;
     public KeyCode Pl2JumpInput = KeyCode.UpArrow;
     public KeyCode Pl2AttackInput = KeyCode.LeftShift;
-    public KeyCode Pl2BlockInput = KeyCode.LeftControl;
+
     
 
     public Toggle ForwardPl1;
     public Toggle BackPl1;
     public Toggle JumpPl1;
     public Toggle AttackPl1;
-    public Toggle BlockPl1;
+
     public Toggle ForwardPl2;
     public Toggle BackPl2;
     public Toggle JumpPl2;
     public Toggle AttackPl2;
-    public Toggle BlockPl2;
+
 
     string F1string;
     string B1string;
     string J1string;
     string A1string;
-    string BL1string;
+
     string F2string;
     string B2string;
     string J2string;
     string A2string;
-    string BL2string;
+
 
     public Text F1text;
     public Text B1text;
     public Text J1text;
     public Text A1text;
-    public Text BL1text;
+
     public Text F2text;
     public Text B2text;
     public Text J2text;
     public Text A2text;
-    public Text BL2text;
+
 
     private int[] values;
     private KeyCode PlayerInput;
@@ -59,22 +59,21 @@ public class ControlsController : MonoBehaviour
         Debug.Log("Awake");
         values = (int[])System.Enum.GetValues(typeof(KeyCode));
 
-        Toggle[] AllToggles = new Toggle[10] { ForwardPl1, BackPl1, JumpPl1, AttackPl1, BlockPl1, ForwardPl2, BackPl2, JumpPl2, AttackPl2, BlockPl2 };
+        Toggle[] AllToggles = new Toggle[8] { ForwardPl1, BackPl1, JumpPl1, AttackPl1, ForwardPl2, BackPl2, JumpPl2, AttackPl2 };
 
         KeyCode Pl1ForwardInput = GlobalController.Instance.right1;
         KeyCode Pl1BackInput = GlobalController.Instance.left1;
         KeyCode Pl1JumpInput = GlobalController.Instance.jump1;
         KeyCode PL1AttackInput = GlobalController.Instance.attack1;
-        KeyCode Pl1BlockInput = GlobalController.Instance.block1;
+
 
         KeyCode Pl2ForwardInput = GlobalController.Instance.right2;
         KeyCode Pl2BackInput = GlobalController.Instance.left2;
         KeyCode Pl2JumpInput = GlobalController.Instance.jump2;
         KeyCode Pl2AttackInput = GlobalController.Instance.attack2;
-        KeyCode Pl2BlockInput = GlobalController.Instance.block2;
 
-        KeyCode[] allInputs = new KeyCode[] { Pl1ForwardInput, Pl1BackInput, Pl1JumpInput, PL1AttackInput, Pl1BlockInput, Pl2ForwardInput, Pl2BackInput, Pl2JumpInput, Pl2AttackInput, Pl2BlockInput };
-        Text[] allText = new Text[] { F1text, B1text, J1text, A1text, BL1text, F2text, B2text, J2text, A2text, BL2text };
+        KeyCode[] allInputs = new KeyCode[] { Pl1ForwardInput, Pl1BackInput, Pl1JumpInput, PL1AttackInput, Pl2ForwardInput, Pl2BackInput, Pl2JumpInput, Pl2AttackInput};
+        Text[] allText = new Text[] { F1text, B1text, J1text, A1text, F2text, B2text, J2text, A2text};
 
         for (int i = 0; i < allInputs.Length; i++)
         {
@@ -111,10 +110,6 @@ public class ControlsController : MonoBehaviour
         {
             ToggleChange(AttackPl1,AllToggles);
         });
-        BlockPl1.onValueChanged.AddListener(delegate
-        {
-            ToggleChange(BlockPl1,AllToggles);
-        });
         ForwardPl2.onValueChanged.AddListener(delegate
         {
             ToggleChange(ForwardPl2,AllToggles);
@@ -131,25 +126,12 @@ public class ControlsController : MonoBehaviour
         {
             ToggleChange(AttackPl2,AllToggles);
         });
-        BlockPl2.onValueChanged.AddListener(delegate
-        {
-            ToggleChange(BlockPl2,AllToggles);
-        });
     }
 
     
 
     private void Update()
     {
-
-        if (Input.GetKeyDown(Pl1ForwardInput))
-        {
-            Debug.Log("PL1 Forward Pressed");
-        }
-        if (Input.GetKeyDown(PL1AttackInput))
-        {
-            Debug.Log("PL1 Attack Pressed");
-        }
         if (ForwardPl1.isOn == true)
         {
             foreach (KeyCode pInput in values)
@@ -275,38 +257,6 @@ public class ControlsController : MonoBehaviour
                         Debug.Log(pInput);
                         AttackPl1.isOn = false;
                         PL1AttackInput = PlayerInput;
-                        LeavingControls();
-                    }
-                }
-            }
-        }
-        if (BlockPl1.isOn == true)
-        {
-            foreach (KeyCode pInput in values)
-            {
-                if (Input.GetKey(pInput))
-                {
-                    PlayerInput = pInput;
-                    if (PlayerInput != KeyCode.Mouse0)
-                    {
-                        BL1string = PlayerInput.ToString();
-                        if (BL1string.Length <= 5)
-                        {
-                            BL1text.fontSize = 60;
-                        }
-                        else if (BL1string.Length > 5 && BL1string.Length <= 9)
-
-                        {
-                            BL1text.fontSize = 40;
-                        }
-                        else
-                        {
-                            BL1text.fontSize = 38;
-                        }
-                        BL1text.text = BL1string;
-                        Debug.Log(pInput);
-                        BlockPl1.isOn = false;
-                        Pl1BlockInput = PlayerInput;
                         LeavingControls();
                     }
                 }
@@ -440,38 +390,6 @@ public class ControlsController : MonoBehaviour
                 }
             }
         }
-        if (BlockPl2.isOn == true)
-        {
-            foreach (KeyCode pInput in values)
-            {
-                if (Input.GetKey(pInput))
-                {
-                    PlayerInput = pInput;
-                    if (PlayerInput != KeyCode.Mouse0)
-                    {
-                        BL2string = PlayerInput.ToString();
-                        if (BL2string.Length <= 5)
-                        {
-                            BL2text.fontSize = 60;
-                        }
-                        else if (BL2string.Length > 5 && BL2string.Length <= 9)
-
-                        {
-                            BL2text.fontSize = 40;
-                        }
-                        else
-                        {
-                            BL2text.fontSize = 38;
-                        }
-                        BL2text.text = BL2string;
-                        Debug.Log(pInput);
-                        BlockPl2.isOn = false;
-                        Pl2BlockInput = PlayerInput;
-                        LeavingControls();
-                    }
-                }
-            }
-        }
 
 
 
@@ -504,12 +422,10 @@ public class ControlsController : MonoBehaviour
         GlobalController.Instance.left1 = Pl1BackInput;
         GlobalController.Instance.right1 = Pl1ForwardInput;
         GlobalController.Instance.attack1 = PL1AttackInput;
-        GlobalController.Instance.block1 = Pl1BlockInput;
         GlobalController.Instance.jump2 = Pl2JumpInput;
         GlobalController.Instance.left2 = Pl2BackInput;
         GlobalController.Instance.right2 = Pl2ForwardInput;
         GlobalController.Instance.attack2 = Pl2AttackInput;
-        GlobalController.Instance.block2 = Pl2BlockInput;
 
     }
 

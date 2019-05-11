@@ -37,7 +37,7 @@ public class Projectile : MonoBehaviour
         //When colliding with an opponent, add some fake knockback
         if (collision.gameObject.layer == owner.GetComponent<PlayerController>().otherPlayer.gameObject.layer) 
         {
-            collision.gameObject.GetComponent<Rigidbody2D>().AddForce(transform.right*1000);
+            collision.gameObject.GetComponent<PlayerController>().head.AddForce(transform.right*500);
         }
         //Destroy the bullet on any detected collision
         Destroy(transform.parent.parent.gameObject);
