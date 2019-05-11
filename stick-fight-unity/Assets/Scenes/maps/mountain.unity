@@ -23084,6 +23084,7 @@ MonoBehaviour:
   rightleg2: {fileID: 0}
   leftleg2: {fileID: 0}
   paused: 0
+  won: 0
 --- !u!4 &1003924419
 Transform:
   m_ObjectHideFlags: 0
@@ -29675,6 +29676,7 @@ MonoBehaviour:
   rightleg2: {fileID: 1558698799}
   leftleg2: {fileID: 1383127817}
   paused: 0
+  won: 0
 --- !u!4 &1299330039
 Transform:
   m_ObjectHideFlags: 0
@@ -32213,18 +32215,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20f2fac8e9ff25948a6f14419d2d2968, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  head1: {fileID: 0}
-  body1: {fileID: 0}
-  rightarm1: {fileID: 0}
-  leftarm1: {fileID: 0}
-  rightleg1: {fileID: 0}
-  leftleg1: {fileID: 0}
-  head2: {fileID: 0}
-  body2: {fileID: 0}
-  rightarm2: {fileID: 0}
-  leftarm2: {fileID: 0}
-  rightleg2: {fileID: 0}
-  leftleg2: {fileID: 0}
+  head1: {fileID: 1495083408}
+  body1: {fileID: 1123517791}
+  rightarm1: {fileID: 1098371010}
+  leftarm1: {fileID: 77427197}
+  rightleg1: {fileID: 2129642702}
+  leftleg1: {fileID: 268262774}
+  head2: {fileID: 744367626}
+  body2: {fileID: 819962796}
+  rightarm2: {fileID: 284080080}
+  leftarm2: {fileID: 1809279949}
+  rightleg2: {fileID: 1558698799}
+  leftleg2: {fileID: 1383127817}
 --- !u!1 &1689164841
 GameObject:
   m_ObjectHideFlags: 0
