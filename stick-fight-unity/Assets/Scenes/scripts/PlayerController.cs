@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
+    public static PlayerController Instance;
     // Parts of the prefab
     public Rigidbody2D head, body, leftLeg, rightLeg, leftArm, rightArm;
     public Transform rightToe, leftToe;
