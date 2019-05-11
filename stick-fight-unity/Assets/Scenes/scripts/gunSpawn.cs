@@ -7,7 +7,7 @@ public class gunSpawn : MonoBehaviour
     private float nextActionTime = 0.0f;
     public float period = 0.1f;
     public GameObject auto;
-    float fakeTime = Time.time;
+    float fakeTime;
 
     void Start()
     {
