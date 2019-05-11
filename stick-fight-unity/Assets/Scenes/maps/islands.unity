@@ -5540,7 +5540,7 @@ GameObject:
   m_Component:
   - component: {fileID: 172498316}
   - component: {fileID: 172498317}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: palmtop (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17444,7 +17444,7 @@ GameObject:
   m_Component:
   - component: {fileID: 630845099}
   - component: {fileID: 630845100}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: palmTrunk (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -34963,7 +34963,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1237150337}
   - component: {fileID: 1237150338}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: palmtop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -35964,7 +35964,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1384748446}
   - component: {fileID: 1384748447}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: palmTrunk
   m_TagString: Untagged
   m_Icon: {fileID: 0}
