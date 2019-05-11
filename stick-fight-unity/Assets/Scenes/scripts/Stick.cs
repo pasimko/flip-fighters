@@ -24,18 +24,18 @@ public class Stick : MonoBehaviour
                 Transform playerHand = GameObject.Find("player1/rightArm/gunHolder").transform;
                 equipGun(ref playerHand, ref player1);
                 gameObject.transform.localScale = new Vector3(35f, 1f, 1f);
-                ignorePlayer(transform.parent.gameObject);
+                ignorePlayer(gameObject);
             }
             else if (collision.collider.gameObject.layer == 11 && !player2.GetComponent<PlayerController>().hasGun) {
                 equippedBy = player2;
                 Transform playerHand = GameObject.Find("player2/leftArm/gunHolder").transform;
                 equipGun(ref playerHand, ref player2);
                 gameObject.transform.localScale = new Vector3(35f, 1f, 1f);
-                ignorePlayer(transform.parent.gameObject);
+                ignorePlayer(gameObject);
             }
         }
         else if (collision.collider.gameObject.layer == equippedBy.GetComponent<PlayerController>().otherPlayer.gameObject.layer) {
-            equippedBy.GetComponent<PlayerController>().otherPlayer.head.AddForce(transform.right*10000);
+            equippedBy.GetComponent<PlayerController>().otherPlayer.head.AddForce(transform.right*-10000);
         }
     }
     
