@@ -28261,8 +28261,8 @@ MonoBehaviour:
   Pl1JumpInput: 119
   PL1AttackInput: 32
   Pl1BlockInput: 98
-  Pl2ForwardInput: 276
-  Pl2BackInput: 275
+  Pl2ForwardInput: 275
+  Pl2BackInput: 276
   Pl2JumpInput: 273
   Pl2AttackInput: 305
   Pl2BlockInput: 305
