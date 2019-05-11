@@ -22,7 +22,7 @@ TagManager:
   - player2
   - P1PROJ
   - P2PROJ
-  - 
+  - foreground
   - 
   - 
   - 
@@ -46,4 +46,7 @@ TagManager:
     locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: foreground
+    uniqueID: 2577537399
     locked: 0

@@ -26,7 +26,9 @@ public class MenuController : MonoBehaviour
     {
         SceneManager.LoadScene(sceneName: "settings");
     }
-
+    public void quit() {
+        Application.Quit();
+    }
 }
 
 
