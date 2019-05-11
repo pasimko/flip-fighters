@@ -25,6 +25,12 @@ public class Projectile : MonoBehaviour
     }
 
     void Update() {
+        gameObject.transform.parent.GetComponent<Rigidbody2D>().mass = 5;
+        gameObject.transform.parent.parent.Find("body").GetComponent<Rigidbody2D>().mass = 5;
+        gameObject.transform.parent.parent.Find("rightArm").GetComponent<Rigidbody2D>().mass = 5;
+        gameObject.transform.parent.parent.Find("leftArm").GetComponent<Rigidbody2D>().mass = 5;
+        gameObject.transform.parent.parent.Find("leftLeg").GetComponent<Rigidbody2D>().mass = 5;
+        gameObject.transform.parent.parent.Find("rightLeg").GetComponent<Rigidbody2D>().mass = 5;
         //Destroy if it's off the map
         if (gameObject.transform.position.y < -20) {
             Destroy(transform.parent.parent.gameObject);

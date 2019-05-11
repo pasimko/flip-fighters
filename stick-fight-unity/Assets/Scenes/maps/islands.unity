@@ -18021,7 +18021,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!1 &739953894
 GameObject:
@@ -18488,7 +18488,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!233 &812033142
 HingeJoint2D:
@@ -24029,7 +24029,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!1 &915646696
 GameObject:
@@ -24358,7 +24358,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!233 &980560932
 HingeJoint2D:
@@ -30044,7 +30044,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!1 &1174190164
 GameObject:
@@ -35385,6 +35385,7 @@ MonoBehaviour:
   rightleg2: {fileID: 1168541809}
   leftleg2: {fileID: 1582415070}
   paused: 0
+  won: 0
 --- !u!4 &1266608040
 Transform:
   m_ObjectHideFlags: 0
@@ -36099,7 +36100,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!1 &1384748445
 GameObject:
@@ -36333,7 +36334,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!1 &1417156801
 GameObject:
@@ -36670,6 +36671,7 @@ MonoBehaviour:
   rightleg2: {fileID: 0}
   leftleg2: {fileID: 0}
   paused: 0
+  won: 0
 --- !u!4 &1424129530
 Transform:
   m_ObjectHideFlags: 0
@@ -37265,7 +37267,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!1 &1515318430
 GameObject:
@@ -37670,7 +37672,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!1 &1584890055
 GameObject:
@@ -44524,7 +44526,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!61 &1864020726
 BoxCollider2D:
