@@ -255,7 +255,10 @@ public class PlayerController : MonoBehaviour
                         {
                             leftLeg.AddTorque(-120);
                             tempMelee = Instantiate(meleePrefab, leftLeg.position, body.transform.rotation).GetComponent<meleeController>();
+                            tempMelee.damageMult = (numberFlips + 1);
+                            tempMelee.damageMult *= 2;
                             //Kicks do double knockback
+                            tempMelee.knockbackMult = (numberFlips + 1);
                             tempMelee.knockbackMult *= 2;
                             leftLeg.GetComponentInChildren<ParticleSystem>().Play();
                         }
@@ -273,7 +276,11 @@ public class PlayerController : MonoBehaviour
                         {
                             rightLeg.AddTorque(120);
                             tempMelee = Instantiate(meleePrefab, rightLeg.position, body.transform.rotation).GetComponent<meleeController>();
+                            
+                            tempMelee.damageMult = (numberFlips + 1);
+                            tempMelee.damageMult *= 2;
                             //Double knockback for kick
+                            tempMelee.knockbackMult = (numberFlips + 1);
                             tempMelee.knockbackMult *= 2;
                             rightLeg.GetComponentInChildren<ParticleSystem>().Play();
                         }
@@ -311,6 +318,11 @@ public class PlayerController : MonoBehaviour
                         {
                             leftLeg.AddTorque(120);
                             tempMelee = Instantiate(meleePrefab, leftLeg.position, body.transform.rotation).GetComponent<meleeController>();
+
+                            
+                            tempMelee.damageMult = (numberFlips + 1);
+                            tempMelee.damageMult *= 2;
+
                             tempMelee.knockbackMult = (numberFlips + 1);
                             //Double knockback for kick
                             tempMelee.knockbackMult *= 2; 
@@ -320,6 +332,10 @@ public class PlayerController : MonoBehaviour
                         {
                             rightLeg.AddTorque(120);
                             tempMelee = Instantiate(meleePrefab, rightLeg.position, body.transform.rotation).GetComponent<meleeController>();
+
+                            
+                            tempMelee.damageMult = (numberFlips + 1);
+                            tempMelee.damageMult *= 2;
 
                             tempMelee.knockbackMult = (numberFlips + 1);
                             //Double knockback for kick
@@ -332,6 +348,9 @@ public class PlayerController : MonoBehaviour
                 tempMelee.owner = gameObject;
                 tempMelee.knockbackMult += body.velocity.magnitude/10;
                 tempMelee.knockbackMult += Mathf.Abs(body.angularVelocity)/200f;
+
+                tempMelee.damageMult += body.velocity.magnitude/10;
+                tempMelee.damageMult += Mathf.Abs(body.angularVelocity)/200f;
             }
         }
     }
