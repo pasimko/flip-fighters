@@ -88,6 +88,7 @@ public class PlayerController : MonoBehaviour
         }
         if (otherPlayer.won)
         {
+            health = 0;
             Destroy(head.GetComponent<HingeJoint2D>());
             Destroy(rightArm.GetComponent<HingeJoint2D>());
             Destroy(leftArm.GetComponent<HingeJoint2D>());
