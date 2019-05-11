@@ -17,6 +17,11 @@ public class MenuController : MonoBehaviour
         SceneManager.LoadScene(sceneName: "controls");
     }
 
+    public void showCredits()
+    {
+        SceneManager.LoadScene(sceneName: "developers");
+    }
+
     public void backToMenu()
     {
         SceneManager.LoadScene(sceneName: "menu");
