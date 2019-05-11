@@ -35,7 +35,7 @@ public class Projectile : MonoBehaviour
     {
         if (collision.gameObject.layer == owner.GetComponent<PlayerController>().otherPlayer.gameObject.layer) 
         {
-            collision.gameObject.GetComponent<Rigidbody2D>().AddForce(transform.right*150);
+            collision.gameObject.GetComponent<Rigidbody2D>().AddForce(transform.right*850);
         }
         Destroy(transform.parent.parent.gameObject);
     }
