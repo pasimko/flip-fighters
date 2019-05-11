@@ -53,6 +53,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         pullControls();
+        changeColor();
         disableParticles();
 
         lastPoint = transform.TransformDirection(Vector3.right);
