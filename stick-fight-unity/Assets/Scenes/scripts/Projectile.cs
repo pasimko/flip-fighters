@@ -10,6 +10,8 @@ public class Projectile : MonoBehaviour
     public GameObject owner;
 
     void Start() {
+        //Set the projectile to the correct layer
+        //Collisions between it's owner and the projectile layer are ignored
         gameObject.layer = owner.layer + 2;
         gameObject.transform.parent.gameObject.layer = owner.layer + 2;
         gameObject.transform.parent.parent.Find("body").gameObject.layer = owner.layer + 2;
@@ -19,7 +21,6 @@ public class Projectile : MonoBehaviour
         gameObject.transform.parent.parent.Find("rightLeg").gameObject.layer = owner.layer + 2;
         //Set the velocity based on the rotation of the bullet. 
         //Bullet is rotated based on the gun's rotation upon instantiation
-        Debug.Log(transform.gameObject.name);
         transform.parent.GetComponent<Rigidbody2D>().AddForce(transform.right * velocity * 100);
 
     }
@@ -33,10 +34,12 @@ public class Projectile : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
+        //When colliding with an opponent, add some fake knockback
         if (collision.gameObject.layer == owner.GetComponent<PlayerController>().otherPlayer.gameObject.layer) 
         {
             collision.gameObject.GetComponent<Rigidbody2D>().AddForce(transform.right*850);
         }
+        //Destroy the bullet on any detected collision
         Destroy(transform.parent.parent.gameObject);
     }
 }

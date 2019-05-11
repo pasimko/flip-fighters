@@ -25,9 +25,15 @@ public class gunScript : MonoBehaviour
 
     public void fire()
     {
+        //Recoil forces
+        equippedBy.GetComponent<PlayerController>().body.AddForce(transform.right*-100);
+        equippedBy.GetComponent<PlayerController>().head.AddForce(new Vector3(0, 50, 0));
+
+        //Projectile is instantiated and rotated at the correct position and oriented based on the player
         tempBullet = Instantiate(projectilePrefab, transform.position, transform.rotation);
         
         tempBullet.transform.Find("head/collider").GetComponent<Projectile>().owner = equippedBy;
+        //Ignore the owner
         ignorePlayer(tempBullet);
         Physics2D.IgnoreCollision(tempBullet.transform.parent.GetComponent<Collider2D>(), gameObject.GetComponent<Collider2D>());
     }
@@ -39,6 +45,8 @@ public class gunScript : MonoBehaviour
                 equippedBy = player1;
                 Transform playerHand = GameObject.Find("player1/rightArm/gunHolder").transform;
                 equipGun(ref playerHand, ref player1);
+                
+                //Change scale in order to maintain scaling before it was childed
                 gameObject.transform.localScale = new Vector3(-3f, 3f, 1f);
                 ignorePlayer(transform.parent.gameObject);
             }
@@ -46,6 +54,8 @@ public class gunScript : MonoBehaviour
                 equippedBy = player2;
                 Transform playerHand = GameObject.Find("player2/leftArm/gunHolder").transform;
                 equipGun(ref playerHand, ref player2);
+
+                //Change scale in order to maintain scaling before it was childed
                 gameObject.transform.localScale = new Vector3(-3f, -3f, 1f);
                 ignorePlayer(transform.parent.gameObject);
             }
@@ -58,8 +68,12 @@ public class gunScript : MonoBehaviour
 
         player.GetComponent<PlayerController>().hasGun = true;
         player.GetComponent<PlayerController>().currentGun = gameObject.GetComponent<gunScript>();
+
+        //We don't want the orb physically interacting with the map anymore
         Destroy(gameObject.GetComponent<Rigidbody2D>());
         Destroy(gameObject.GetComponent<BoxCollider2D>());
+
+        //Setting parent can mess up position and rotation, so we reset
         gameObject.transform.SetParent(playerHand, true);
         gameObject.transform.localPosition = Vector3.zero;
         gameObject.transform.localRotation = Quaternion.identity;

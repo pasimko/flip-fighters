@@ -19,6 +19,7 @@ public class meleeController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Countdown after instantiation to destroy gameobject
         timer -= Time.deltaTime;
         if (timer <= 0)
         {
@@ -29,10 +30,12 @@ public class meleeController : MonoBehaviour
     {
         if (collision.gameObject.tag != owner.tag && !hasCollided)
         {
-            Debug.Log(knockbackMult);
+            //Knock target into the air
             collision.GetComponent<Rigidbody2D>().AddForce(Vector2.up * 40f * knockbackMult * knockbackMult);
+            //Explosion force to make knockback relative to the position of the player
             collision.GetComponent<Rigidbody2D>().AddExplosionForce(500*knockbackMult, owner.GetComponent<PlayerController>().body.position, 5f, 5f*knockbackMult);
             Destroy(gameObject);
+            //Do damage
             collision.transform.parent.gameObject.GetComponent<PlayerController>().health -= damageMult*3;
             hasCollided = true;
         }
