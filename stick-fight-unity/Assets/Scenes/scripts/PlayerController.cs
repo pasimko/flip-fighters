@@ -346,8 +346,8 @@ public class PlayerController : MonoBehaviour
                     }
                 }
                 tempMelee.owner = gameObject;
-                tempMelee.knockbackMult += body.velocity.magnitude/10;
-                tempMelee.knockbackMult += Mathf.Abs(body.angularVelocity)/200f;
+                tempMelee.knockbackMult += body.velocity.magnitude/7;
+                tempMelee.knockbackMult += Mathf.Abs(body.angularVelocity)/150f;
 
                 tempMelee.damageMult += body.velocity.magnitude/10;
                 tempMelee.damageMult += Mathf.Abs(body.angularVelocity)/200f;

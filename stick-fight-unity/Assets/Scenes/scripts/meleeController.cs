@@ -33,7 +33,7 @@ public class meleeController : MonoBehaviour
             collision.GetComponent<Rigidbody2D>().AddForce(Vector2.up * 40f * knockbackMult * knockbackMult);
             collision.GetComponent<Rigidbody2D>().AddExplosionForce(500*knockbackMult, owner.GetComponent<PlayerController>().body.position, 5f, 5f*knockbackMult);
             Destroy(gameObject);
-            collision.transform.parent.gameObject.GetComponent<PlayerController>().health -= damageMult*4;
+            collision.transform.parent.gameObject.GetComponent<PlayerController>().health -= damageMult*2;
             hasCollided = true;
         }
     }
