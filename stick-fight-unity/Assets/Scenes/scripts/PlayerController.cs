@@ -298,6 +298,10 @@ public class PlayerController : MonoBehaviour
                             rightArm.GetComponentInChildren<ParticleSystem>().Play();
                         }
                     }
+                    if (tempMelee.knockbackMult > 15)
+                    {
+                        tempMelee.knockbackMult = 15;
+                    }
                 }
                 else
                 {
