@@ -25,7 +25,7 @@ public class gunScript : MonoBehaviour
 
     public void fire()
     {
-        tempBullet = Instantiate(projectilePrefab, barrel.position, transform.rotation);
+        tempBullet = Instantiate(projectilePrefab, transform.position, transform.rotation);
         
         tempBullet.transform.Find("head/collider").GetComponent<Projectile>().owner = equippedBy;
         ignorePlayer(tempBullet);
@@ -39,14 +39,14 @@ public class gunScript : MonoBehaviour
                 equippedBy = player1;
                 Transform playerHand = GameObject.Find("player1/rightArm/gunHolder").transform;
                 equipGun(ref playerHand, ref player1);
-                gameObject.transform.localScale = new Vector3(-1f, -1f, 1f);
+                gameObject.transform.localScale = new Vector3(-3f, 3f, 1f);
                 ignorePlayer(transform.parent.gameObject);
             }
             else if (collision.collider.gameObject.layer == 11 && !player2.GetComponent<PlayerController>().hasGun) {
                 equippedBy = player2;
                 Transform playerHand = GameObject.Find("player2/leftArm/gunHolder").transform;
                 equipGun(ref playerHand, ref player2);
-                gameObject.transform.localScale = new Vector3(-1f, -1f, 1f);
+                gameObject.transform.localScale = new Vector3(-3f, -3f, 1f);
                 ignorePlayer(transform.parent.gameObject);
             }
         }

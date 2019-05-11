@@ -10,8 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2239956718805729079}
   - component: {fileID: 6346445785509650169}
-  - component: {fileID: 9201172295069820925}
-  - component: {fileID: 8941011486614526363}
   - component: {fileID: 1679953726158840665}
   - component: {fileID: 1185467881460265347}
   - component: {fileID: 3746607216428659236}
@@ -84,37 +82,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!122 &9201172295069820925
-Halo:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4719824344782205066}
-  m_Enabled: 1
-  m_Color:
-    serializedVersion: 2
-    rgba: 4288216963
-  m_Size: 5
---- !u!119 &8941011486614526363
-Projector:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4719824344782205066}
-  m_Enabled: 1
-  serializedVersion: 2
-  m_NearClipPlane: 0.1
-  m_FarClipPlane: 100
-  m_FieldOfView: 60
-  m_AspectRatio: 1
-  m_Orthographic: 0
-  m_OrthographicSize: 10
-  m_Material: {fileID: 15303, guid: 0000000000000000f000000000000000, type: 0}
-  m_IgnoreLayers:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!50 &1679953726158840665
 Rigidbody2D:
   serializedVersion: 4
