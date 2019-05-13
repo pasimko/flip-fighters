@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -103,6 +103,37 @@ public class PlayerController : MonoBehaviour
         else return false;
     }
 
+    Vector3 GetIndicatorPos()
+    {
+        float newX = headPos.x;
+        float newY = headPos.y;
+        if (headPos.y > 23)
+        {
+            if (headPos.y >= 19)
+            {
+                newY = 19;
+            }
+            else newY = headPos.y;
+        }
+        if (headPos.x > 13)
+        {
+            if (headPos.x >= 9)
+            {
+                newX = 9;
+            }
+            else newX = headPos.x;
+        }
+        if (headPos.x < -13)
+        {
+            if (headPos.x <= -9)
+            {
+                newY = -9;
+            }
+            else newY = headPos.y;
+        }
+        Vector3 newPos = new Vector3(newX, newY);
+        return newPos;
+    }
     
 
     void Update()
