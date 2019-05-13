@@ -44,6 +44,8 @@ public class PlayerController : MonoBehaviour
 
     public Camera camera;
 
+    public Transform directionalIndicator;
+
     public GameObject head1, body1, rightarm1, leftarm1, rightleg1, leftleg1;
     public GameObject head2, body2, rightarm2, leftarm2, rightleg2, leftleg2;
 
@@ -51,9 +53,13 @@ public class PlayerController : MonoBehaviour
 
     public bool won = false;
 
+    public float speed;
+
     void Awake() {
         disableParticles();
     }
+
+    
 
     void Start()
     {
@@ -70,7 +76,7 @@ public class PlayerController : MonoBehaviour
         Physics2D.IgnoreCollision(rightLeg.GetComponent<BoxCollider2D>(), body.GetComponent<BoxCollider2D>());
     }
 
-    public static Vector3 GetScreenPosition(Transform transform, Canvas canvas, Camera cam)
+    /*public static Vector3 GetScreenPosition(Transform transform, Canvas canvas, Camera cam)
     {
         Vector3 pos;
         float width = canvas.GetComponent<RectTransform>().sizeDelta.x;
@@ -79,7 +85,25 @@ public class PlayerController : MonoBehaviour
         float y = Camera.main.WorldToScreenPoint(transform.position).y / Screen.height;
         pos = new Vector3(width * x - width / 2, y * height - height / 2);
         return pos;
+    }*/
+
+    private bool isOffScreen()
+    {
+        if (head.position.y > 13)
+        {
+            return true;
+        }
+        else if (head.position.x < -23)
+        {
+            return true;
+        } else if (head.position.x > 23)
+        {
+            return true;
+        }
+        else return false;
     }
+
+    
 
     void Update()
     {
@@ -104,6 +128,15 @@ public class PlayerController : MonoBehaviour
         //Are the toes on the ground?
         isGrounded = (Physics2D.OverlapCircle(leftToe.position, 0.2f, groundLayer) || Physics2D.OverlapCircle(rightToe.position, 0.2f, groundLayer));
         //Don't take input or anything if the game is paused
+
+        if (isOffScreen())
+        {
+            Vector2 direction = new Vector2(head.position.x, head.position.y);
+            directionalIndicator.up = direction;
+            directionalIndicator.GetComponent<Renderer>().enabled = true;
+        } else directionalIndicator.GetComponent<Renderer>().enabled = false;
+
+
         if (!paused)
         {
             meleeCount -= Time.deltaTime;
